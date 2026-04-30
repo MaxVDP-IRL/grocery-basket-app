@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ingredient Resolver — Barbora Basket</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:      #5a9e1e;
+      --green-dark: #467a17;
+      --green-bg:   #f2f8eb;
+      --red:        #d93025;
+      --gray:       #555;
+      --border:     #e0e0e0;
+      --radius:     8px;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px;
+      background: #f7f7f7;
+      color: #222;
+      min-height: 100vh;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      background: var(--green-dark);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 52px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .topbar h1 { font-size: 16px; font-weight: 700; }
+    .topbar-right { display: flex; align-items: center; gap: 20px; font-size: 13px; }
+    .progress-label { opacity: .85; }
+    .progress-pill {
+      background: rgba(255,255,255,.2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-weight: 600;
+    }
+    .btn-export {
+      background: #fff;
+      color: var(--green-dark);
+      border: none;
+      border-radius: var(--radius);
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-export:hover { background: #e8f5d6; }
+
+    /* ── Main layout ── */
+    .main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 24px 60px;
+    }
+
+    /* ── Ingredient header ── */
+    .ingredient-card {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .ingredient-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+    .ingredient-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 16px;
+    }
+    .search-row {
+      display: flex;
+      gap: 10px;
+    }
+    .search-row input {
+      flex: 1;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 14px;
+      outline: none;
+    }
+    .search-row input:focus { border-color: var(--green); }
+    .btn-search {
+      padding: 9px 18px;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-search:hover { background: var(--green-dark); }
+
+    /* ── Nav ── */
+    .nav-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .btn-nav {
+      padding: 7px 16px;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: var(--radius);
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--gray);
+    }
+    .btn-nav:hover { border-color: #aaa; color: #222; }
+    .btn-skip {
+      margin-left: auto;
+      color: var(--red);
+      border-color: #fcc;
+    }
+    .btn-skip:hover { background: #fff5f5; }
+
+    /* ── Results grid ── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .result-card {
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      cursor: pointer;
+      transition: border-color .15s, box-shadow .15s;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .result-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 2px 8px rgba(90,158,30,.15);
+    }
+    .result-card.selected {
+      border-color: var(--green);
+      background: var(--green-bg);
+    }
+    .result-card img {
+      width: 100%;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 4px;
+      background: #f5f5f5;
+    }
+    .result-card-title {
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 500;
+      flex: 1;
+    }
+    .result-card-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+    .result-card-sku {
+      font-size: 10px;
+      color: #aaa;
+      font-family: monospace;
+    }
+    .select-btn {
+      width: 100%;
+      padding: 7px;
+      border: none;
+      border-radius: 6px;
+      background: var(--green);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .select-btn:hover { background: var(--green-dark); }
+    .result-card.selected .select-btn {
+      background: #2e7d00;
+    }
+
+    /* ── Status ── */
+    .status-msg {
+      text-align: center;
+      color: var(--gray);
+      padding: 32px;
+      font-size: 14px;
+    }
+
+    /* ── Sidebar mapped list ── */
+    .mapped-section { margin-top: 12px; }
+    .mapped-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+    .mapped-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+    }
+    .mapped-item:last-child { border-bottom: none; }
+    .mapped-check { color: var(--green); font-size: 15px; }
+    .mapped-name { flex: 1; font-weight: 500; }
+    .mapped-product { color: var(--gray); font-size: 12px; text-align: right; max-width: 160px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mapped-undo { background: none; border: none; color: #ccc; cursor: pointer; font-size: 14px; padding: 2px; }
+    .mapped-undo:hover { color: var(--red); }
+
+    /* ── Done state ── */
+    .done-banner {
+      background: var(--green-bg);
+      border: 1px solid var(--green);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .done-banner h2 { color: var(--green-dark); margin-bottom: 8px; }
+    .done-banner p { color: var(--gray); font-size: 13px; }
+
+    /* ── Layout ── */
+    .layout { display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    .sidebar {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      position: sticky;
+      top: 68px;
+    }
+    @media (max-width: 700px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; max-height: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <h1>🥕 Ingredient Resolver</h1>
+    <div class="topbar-right">
+      <span class="progress-label">Mapped:</span>
+      <span class="progress-pill" id="progress-pill">0 / 99</span>
+      <button class="btn-export" id="export-btn">Download Map ↓</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="layout">
+      <div class="left-col" id="left-col">
+        <!-- Filled by JS -->
+      </div>
+      <div class="sidebar">
+        <div class="mapped-header">Mapped ingredients</div>
+        <div id="mapped-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="resolver.js"></script>
+</body>
+</html>

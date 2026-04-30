@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🛒 Barbora Basket</h1>
+    <div class="session-badge">
+      <div class="dot" id="session-dot"></div>
+      <span id="session-label">Checking…</span>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-row">
+    <input id="search-input" type="text" placeholder="Search products to add…" autocomplete="off">
+  </div>
+
+  <!-- Search results dropdown -->
+  <div class="search-results" id="search-results"></div>
+
+  <!-- Shopping list -->
+  <div class="list-header">
+    <span>Shopping list</span>
+    <button class="btn-text" id="clear-btn">Clear all</button>
+  </div>
+  <div id="list-empty" class="list-empty">
+    No items yet — search for products above.
+  </div>
+  <div class="list-items" id="list-items"></div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <button class="fill-btn" id="fill-btn" disabled>Fill basket →</button>
+    <div class="progress-wrap" id="progress-wrap">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-text" id="progress-text"></div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:8px 0 10px;border-top:1px solid #eee;margin-top:2px;display:flex;align-items:center;justify-content:center;gap:16px">
+    <a id="planner-link" href="#" style="font-size:12px;color:#2d7a3a;text-decoration:none;font-weight:600">
+      🗓 Plan meals
+    </a>
+    <span style="color:#ddd">|</span>
+    <a id="resolver-link" href="#" style="font-size:11px;color:#888;text-decoration:none">
+      ⚙ Ingredient resolver
+    </a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

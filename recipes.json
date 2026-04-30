@@ -1,0 +1,1057 @@
+{
+  "version": "1.1.0",
+  "updated": "2026-04-23",
+  "recipes": [
+
+    {
+      "id": "spaghetti-bolognese",
+      "name": "Spaghetti Bolognese",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 30,
+      "tags": ["pasta", "beef", "italian"],
+      "description": "A reliable weeknight classic. Rich meat sauce that the whole family loves.",
+      "ingredients": [
+        { "name": "Beef mince",          "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Spaghetti",           "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tomato paste",        "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Dried oregano",       "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Parmesan cheese",     "quantity": 50,  "unit": "g",   "sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-stir-fry-rice",
+      "name": "Chicken Stir-Fry with Rice",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 20,
+      "tags": ["chicken", "asian", "rice"],
+      "description": "Quick, colourful and easy. Ready in under 35 minutes.",
+      "ingredients": [
+        { "name": "Chicken breast",      "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Long grain rice",     "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Bell pepper",         "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Broccoli",            "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Soy sauce",           "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Sesame oil",          "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "beef-tacos",
+      "name": "Beef Tacos",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 20,
+      "tags": ["beef", "mexican", "family favourite"],
+      "description": "Build-your-own tacos — kids love assembling their own.",
+      "ingredients": [
+        { "name": "Beef mince",          "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Flour tortillas",     "quantity": 8,   "unit": "pcs", "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Ground cumin",        "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Paprika",             "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Cheddar cheese",      "quantity": 100, "unit": "g",   "sku": null },
+        { "name": "Sour cream",          "quantity": 100, "unit": "ml",  "sku": null },
+        { "name": "Iceberg lettuce",     "quantity": 0.5, "unit": "head","sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-tikka-masala",
+      "name": "Chicken Tikka Masala",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 30,
+      "tags": ["chicken", "indian", "curry"],
+      "description": "Mild, creamy curry that works for the whole family. Serve with rice.",
+      "ingredients": [
+        { "name": "Chicken breast",      "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Long grain rice",     "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Heavy cream",         "quantity": 150, "unit": "ml",  "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Tikka masala paste",  "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Natural yogurt",      "quantity": 100, "unit": "ml",  "sku": null }
+      ]
+    },
+
+    {
+      "id": "pork-schnitzel-potatoes",
+      "name": "Pork Schnitzel with Potatoes",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 25,
+      "tags": ["pork", "european", "comfort food"],
+      "description": "Crispy pan-fried schnitzel with simple boiled potatoes and a squeeze of lemon.",
+      "ingredients": [
+        { "name": "Pork tenderloin",     "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Potatoes",            "quantity": 800, "unit": "g",   "sku": null },
+        { "name": "Breadcrumbs",         "quantity": 100, "unit": "g",   "sku": null },
+        { "name": "Egg",                 "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Plain flour",         "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Butter",              "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Lemon",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Sunflower oil",       "quantity": 3,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "baked-salmon-vegetables",
+      "name": "Baked Salmon with Roasted Vegetables",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 25,
+      "tags": ["fish", "salmon", "healthy"],
+      "description": "Sheet-pan dinner — everything roasts together with minimal washing up.",
+      "ingredients": [
+        { "name": "Salmon fillet",       "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Potatoes",            "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Broccoli",            "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Cherry tomatoes",     "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Olive oil",           "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Lemon",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Dried dill",          "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-noodle-soup",
+      "name": "Chicken Noodle Soup",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 30,
+      "tags": ["chicken", "soup", "comfort food"],
+      "description": "Warming and simple. Use a stock cube for speed — nobody will mind.",
+      "ingredients": [
+        { "name": "Chicken breast",      "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Egg noodles",         "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Celery",              "quantity": 2,   "unit": "stalks","sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Chicken stock cube",  "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Dried parsley",       "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "pork-meatballs-pasta",
+      "name": "Pork Meatballs with Pasta",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 20,
+      "cookTime": 25,
+      "tags": ["pork", "pasta", "italian"],
+      "description": "Homemade meatballs take 10 minutes to shape and the kids can help.",
+      "ingredients": [
+        { "name": "Pork mince",          "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Penne pasta",         "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Breadcrumbs",         "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Egg",                 "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Dried oregano",       "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-quesadillas",
+      "name": "Chicken Quesadillas",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 15,
+      "tags": ["chicken", "mexican", "quick"],
+      "description": "Ready in 25 minutes. Serve with sour cream and salsa.",
+      "ingredients": [
+        { "name": "Chicken breast",      "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Flour tortillas",     "quantity": 8,   "unit": "pcs", "sku": null },
+        { "name": "Cheddar cheese",      "quantity": 150, "unit": "g",   "sku": null },
+        { "name": "Bell pepper",         "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Sour cream",          "quantity": 100, "unit": "ml",  "sku": null },
+        { "name": "Paprika",             "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Sunflower oil",       "quantity": 1,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "tuna-pasta-bake",
+      "name": "Tuna Pasta Bake",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 30,
+      "tags": ["fish", "pasta", "bake"],
+      "description": "Pantry staple dinner. Assemble in 10 minutes, oven does the rest.",
+      "ingredients": [
+        { "name": "Tinned tuna",         "quantity": 280, "unit": "g",   "sku": null },
+        { "name": "Penne pasta",         "quantity": 350, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Cheddar cheese",      "quantity": 100, "unit": "g",   "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Olive oil",           "quantity": 1,   "unit": "tbsp","sku": null },
+        { "name": "Dried oregano",       "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "beef-burgers",
+      "name": "Beef Burgers",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 15,
+      "tags": ["beef", "family favourite", "quick"],
+      "description": "Homemade patties are easy and far better than frozen. Pan-fry or grill.",
+      "ingredients": [
+        { "name": "Beef mince",          "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Burger buns",         "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Cheddar cheese",      "quantity": 100, "unit": "g",   "sku": null },
+        { "name": "Iceberg lettuce",     "quantity": 0.5, "unit": "head","sku": null },
+        { "name": "Tomato",              "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Ketchup",             "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Mustard",             "quantity": 1,   "unit": "tbsp","sku": null },
+        { "name": "Egg",                 "quantity": 1,   "unit": "pcs", "sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-fajitas",
+      "name": "Chicken Fajitas",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 20,
+      "tags": ["chicken", "mexican", "family favourite"],
+      "description": "Sizzling pan fajitas with colourful peppers. Everyone builds their own.",
+      "ingredients": [
+        { "name": "Chicken breast",      "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Flour tortillas",     "quantity": 8,   "unit": "pcs", "sku": null },
+        { "name": "Bell pepper",         "quantity": 3,   "unit": "pcs", "sku": null },
+        { "name": "Onion",               "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Sour cream",          "quantity": 100, "unit": "ml",  "sku": null },
+        { "name": "Paprika",             "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Ground cumin",        "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "salmon-lemon-dill",
+      "name": "Pan-Fried Salmon with Lemon and Dill",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 5,
+      "cookTime": 15,
+      "tags": ["fish", "salmon", "quick", "healthy"],
+      "description": "Classic Estonian flavour combination. On the table in 20 minutes.",
+      "ingredients": [
+        { "name": "Salmon fillet",       "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Potatoes",            "quantity": 800, "unit": "g",   "sku": null },
+        { "name": "Butter",              "quantity": 30,  "unit": "g",   "sku": null },
+        { "name": "Lemon",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Fresh dill",          "quantity": 20,  "unit": "g",   "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Olive oil",           "quantity": 1,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "beef-stroganoff",
+      "name": "Beef Stroganoff",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 25,
+      "tags": ["beef", "european", "comfort food"],
+      "description": "Creamy, satisfying and fast. Serve over egg noodles or rice.",
+      "ingredients": [
+        { "name": "Beef strips or steak","quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Egg noodles",         "quantity": 350, "unit": "g",   "sku": null },
+        { "name": "Mushrooms",           "quantity": 250, "unit": "g",   "sku": null },
+        { "name": "Sour cream",          "quantity": 200, "unit": "ml",  "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Beef stock cube",     "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Butter",              "quantity": 30,  "unit": "g",   "sku": null },
+        { "name": "Dijon mustard",       "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "pork-tenderloin-mash",
+      "name": "Pork Tenderloin with Mashed Potato",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 30,
+      "tags": ["pork", "european", "comfort food"],
+      "description": "Pan-fried pork tenderloin with creamy mash and a simple pan sauce.",
+      "ingredients": [
+        { "name": "Pork tenderloin",     "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Potatoes",            "quantity": 1000,"unit": "g",   "sku": null },
+        { "name": "Butter",              "quantity": 60,  "unit": "g",   "sku": null },
+        { "name": "Milk",                "quantity": 100, "unit": "ml",  "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Dried thyme",         "quantity": 0.5, "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "prawn-pasta",
+      "name": "Garlic Prawn Pasta",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 5,
+      "cookTime": 20,
+      "tags": ["seafood", "pasta", "quick"],
+      "description": "Garlicky, buttery prawns tossed through pasta in under 25 minutes.",
+      "ingredients": [
+        { "name": "Cooked prawns",       "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Spaghetti",           "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Butter",              "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Garlic",              "quantity": 4,   "unit": "cloves","sku": null },
+        { "name": "Cherry tomatoes",     "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Lemon",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Dried chilli flakes", "quantity": 0.5, "unit": "tsp", "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "baked-whitefish-vegetables",
+      "name": "Baked White Fish with Vegetables",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 25,
+      "tags": ["fish", "healthy", "bake"],
+      "description": "Mild ocean perch baked with potatoes and vegetables — simple and wholesome.",
+      "ingredients": [
+        { "name": "White fish fillet",   "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Potatoes",            "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Zucchini",            "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Cherry tomatoes",     "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Olive oil",           "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Lemon",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Dried dill",          "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "beef-broccoli-stirfry",
+      "name": "Beef and Broccoli Stir-Fry",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 15,
+      "tags": ["beef", "asian", "quick"],
+      "description": "Tender beef with broccoli in a savoury sauce. Serve with rice.",
+      "ingredients": [
+        { "name": "Beef strips",         "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Long grain rice",     "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Broccoli",            "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Soy sauce",           "quantity": 4,   "unit": "tbsp","sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Sesame oil",          "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Corn starch",         "quantity": 1,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-fried-rice",
+      "name": "Chicken Fried Rice",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 20,
+      "tags": ["chicken", "rice", "asian"],
+      "description": "Great use for leftover rice. A complete one-pan meal.",
+      "ingredients": [
+        { "name": "Chicken breast",      "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Long grain rice",     "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Egg",                 "quantity": 3,   "unit": "pcs", "sku": null },
+        { "name": "Frozen peas",         "quantity": 150, "unit": "g",   "sku": null },
+        { "name": "Soy sauce",           "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Sesame oil",          "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "stuffed-peppers",
+      "name": "Beef Stuffed Peppers",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 35,
+      "tags": ["beef", "bake", "healthy"],
+      "description": "Peppers filled with spiced beef and rice, baked until tender.",
+      "ingredients": [
+        { "name": "Bell pepper",         "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Beef mince",          "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Long grain rice",     "quantity": 150, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Cheddar cheese",      "quantity": 80,  "unit": "g",   "sku": null },
+        { "name": "Olive oil",           "quantity": 1,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "pork-ragu-pasta",
+      "name": "Pork Ragù with Pappardelle",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 35,
+      "tags": ["pork", "pasta", "italian"],
+      "description": "Slow-ish sauce that tastes like it took all day — but only takes 45 minutes.",
+      "ingredients": [
+        { "name": "Pork mince",          "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Pappardelle pasta",   "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tomato paste",        "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Parmesan cheese",     "quantity": 50,  "unit": "g",   "sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-shawarma-wraps",
+      "name": "Chicken Shawarma Wraps",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 20,
+      "tags": ["chicken", "middle eastern", "wraps"],
+      "description": "Spiced chicken thighs sliced into wraps with yogurt sauce and salad.",
+      "ingredients": [
+        { "name": "Chicken thigh",       "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Flour tortillas",     "quantity": 8,   "unit": "pcs", "sku": null },
+        { "name": "Natural yogurt",      "quantity": 150, "unit": "ml",  "sku": null },
+        { "name": "Cucumber",            "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Tomato",              "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Ground cumin",        "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Paprika",             "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "beef-potato-casserole",
+      "name": "Beef and Potato Casserole",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 40,
+      "tags": ["beef", "comfort food", "one pot"],
+      "description": "A hearty Baltic classic. Everything in one pot, minimal effort.",
+      "ingredients": [
+        { "name": "Beef mince",          "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Potatoes",            "quantity": 800, "unit": "g",   "sku": null },
+        { "name": "Onion",               "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Beef stock cube",     "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Tomato paste",        "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Dried thyme",         "quantity": 0.5, "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-cream-pasta",
+      "name": "Chicken in Cream Sauce with Pasta",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 25,
+      "tags": ["chicken", "pasta", "comfort food"],
+      "description": "Tender chicken in a rich cream and garlic sauce — universally loved.",
+      "ingredients": [
+        { "name": "Chicken breast",      "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Penne pasta",         "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Heavy cream",         "quantity": 200, "unit": "ml",  "sku": null },
+        { "name": "Mushrooms",           "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Parmesan cheese",     "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Butter",              "quantity": 30,  "unit": "g",   "sku": null },
+        { "name": "Chicken stock cube",  "quantity": 1,   "unit": "pcs", "sku": null }
+      ]
+    },
+
+    {
+      "id": "sausage-potato-bake",
+      "name": "Sausage and Potato Bake",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 40,
+      "tags": ["sausage", "bake", "family favourite"],
+      "description": "Throw it all in a roasting tin and forget about it. Kids always ask for seconds.",
+      "ingredients": [
+        { "name": "Pork sausages",       "quantity": 8,   "unit": "pcs", "sku": null },
+        { "name": "Potatoes",            "quantity": 800, "unit": "g",   "sku": null },
+        { "name": "Bell pepper",         "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Onion",               "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Cherry tomatoes",     "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Olive oil",           "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Paprika",             "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Dried thyme",         "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "beef-meatballs-pasta",
+      "name": "Beef Meatballs with Tomato Sauce",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 20,
+      "cookTime": 25,
+      "tags": ["beef", "pasta", "italian"],
+      "description": "Juicy beef meatballs in a rich tomato sauce over spaghetti.",
+      "ingredients": [
+        { "name": "Beef mince",          "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Spaghetti",           "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Breadcrumbs",         "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Egg",                 "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Ground cumin",        "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-vegetable-soup",
+      "name": "Chicken and Vegetable Soup",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 35,
+      "tags": ["chicken", "soup", "healthy"],
+      "description": "A proper chunky soup. Make a big batch and lunch is sorted too.",
+      "ingredients": [
+        { "name": "Chicken thigh",       "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Potato",              "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Celery",              "quantity": 2,   "unit": "stalks","sku": null },
+        { "name": "Chicken stock cube",  "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Dried parsley",       "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "fish-fingers-fries",
+      "name": "Homemade Fish Fingers with Baked Fries",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 20,
+      "cookTime": 25,
+      "tags": ["fish", "family favourite", "bake"],
+      "description": "Crispy homemade fish fingers — kids love these, and they're healthier baked.",
+      "ingredients": [
+        { "name": "White fish fillet",   "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Potatoes",            "quantity": 800, "unit": "g",   "sku": null },
+        { "name": "Breadcrumbs",         "quantity": 100, "unit": "g",   "sku": null },
+        { "name": "Egg",                 "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Plain flour",         "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Paprika",             "quantity": 0.5, "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "pork-tenderloin-vegetables",
+      "name": "Pork Tenderloin with Roasted Vegetables",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 30,
+      "tags": ["pork", "healthy", "roast"],
+      "description": "Lean tenderloin roasted alongside seasonal vegetables.",
+      "ingredients": [
+        { "name": "Pork tenderloin",     "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Potatoes",            "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Zucchini",            "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Bell pepper",         "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Olive oil",           "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Dijon mustard",       "quantity": 1,   "unit": "tbsp","sku": null },
+        { "name": "Dried rosemary",      "quantity": 0.5, "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-caesar-wraps",
+      "name": "Chicken Caesar Wraps",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 15,
+      "tags": ["chicken", "wraps", "quick"],
+      "description": "Pan-fried chicken breast sliced into wraps with Caesar dressing and romaine.",
+      "ingredients": [
+        { "name": "Chicken breast",      "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Flour tortillas",     "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Romaine lettuce",     "quantity": 1,   "unit": "head","sku": null },
+        { "name": "Parmesan cheese",     "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Caesar dressing",     "quantity": 80,  "unit": "ml",  "sku": null },
+        { "name": "Olive oil",           "quantity": 1,   "unit": "tbsp","sku": null },
+        { "name": "Garlic powder",       "quantity": 0.5, "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "salmon-burgers",
+      "name": "Salmon Burgers",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 15,
+      "tags": ["fish", "salmon", "burgers"],
+      "description": "Pan-fried salmon patties in buns with a simple dill yogurt sauce.",
+      "ingredients": [
+        { "name": "Salmon fillet",       "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Burger buns",         "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Natural yogurt",      "quantity": 100, "unit": "ml",  "sku": null },
+        { "name": "Fresh dill",          "quantity": 15,  "unit": "g",   "sku": null },
+        { "name": "Breadcrumbs",         "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Egg",                 "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Lemon",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Iceberg lettuce",     "quantity": 0.5, "unit": "head","sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-curry-rice",
+      "name": "Easy Chicken Curry",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 30,
+      "tags": ["chicken", "curry", "rice"],
+      "description": "A family-friendly curry — not too spicy, full of flavour. Serve with naan if you like.",
+      "ingredients": [
+        { "name": "Chicken thigh",       "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Long grain rice",     "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Coconut milk",        "quantity": 200, "unit": "ml",  "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Curry powder",        "quantity": 2,   "unit": "tsp", "sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-rice-bowl",
+      "name": "Teriyaki Chicken Rice Bowl",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 20,
+      "tags": ["chicken", "rice", "asian", "quick"],
+      "description": "Sweet-savoury teriyaki chicken over rice with cucumber and sesame.",
+      "ingredients": [
+        { "name": "Chicken thigh",       "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Long grain rice",     "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Soy sauce",           "quantity": 4,   "unit": "tbsp","sku": null },
+        { "name": "Honey",               "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Cucumber",            "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Sesame oil",          "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Sunflower oil",       "quantity": 1,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "minced-beef-noodles",
+      "name": "Spicy Minced Beef Noodles",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 20,
+      "tags": ["beef", "asian", "noodles", "quick"],
+      "description": "A 30-minute noodle bowl with bold flavour. Adjust chilli to taste.",
+      "ingredients": [
+        { "name": "Beef mince",          "quantity": 500, "unit": "g",   "sku": null },
+        { "name": "Egg noodles",         "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Soy sauce",           "quantity": 4,   "unit": "tbsp","sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Spring onion",        "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Dried chilli flakes", "quantity": 0.5, "unit": "tsp", "sku": null },
+        { "name": "Sesame oil",          "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "chicken-gyros-wraps",
+      "name": "Chicken Gyros Wraps",
+      "vegetarian": false,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 20,
+      "tags": ["chicken", "greek", "wraps"],
+      "description": "Greek-style chicken with tzatziki, tomato and onion in a warm flatbread.",
+      "ingredients": [
+        { "name": "Chicken thigh",       "quantity": 600, "unit": "g",   "sku": null },
+        { "name": "Flour tortillas",     "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Natural yogurt",      "quantity": 150, "unit": "ml",  "sku": null },
+        { "name": "Cucumber",            "quantity": 0.5, "unit": "pcs", "sku": null },
+        { "name": "Tomato",              "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Paprika",             "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Dried oregano",       "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "tomato-pasta",
+      "name": "Spaghetti al Pomodoro",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 5,
+      "cookTime": 20,
+      "tags": ["pasta", "vegetarian", "quick"],
+      "description": "The simplest pasta there is. Good olive oil and good tomatoes are the whole secret.",
+      "ingredients": [
+        { "name": "Spaghetti",           "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Garlic",              "quantity": 4,   "unit": "cloves","sku": null },
+        { "name": "Olive oil",           "quantity": 4,   "unit": "tbsp","sku": null },
+        { "name": "Dried basil",         "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Parmesan cheese",     "quantity": 50,  "unit": "g",   "sku": null }
+      ]
+    },
+
+    {
+      "id": "vegetable-curry-rice",
+      "name": "Vegetable Curry with Rice",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 30,
+      "tags": ["vegetarian", "curry", "rice"],
+      "description": "A hearty plant-based curry with chickpeas and seasonal vegetables.",
+      "ingredients": [
+        { "name": "Long grain rice",     "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Tinned chickpeas",    "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Coconut milk",        "quantity": 200, "unit": "ml",  "sku": null },
+        { "name": "Spinach",             "quantity": 150, "unit": "g",   "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Curry powder",        "quantity": 2,   "unit": "tsp", "sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "mushroom-risotto",
+      "name": "Mushroom Risotto",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 35,
+      "tags": ["vegetarian", "italian", "rice"],
+      "description": "Creamy risotto with mixed mushrooms. Needs stirring but no special skill.",
+      "ingredients": [
+        { "name": "Arborio rice",        "quantity": 350, "unit": "g",   "sku": null },
+        { "name": "Mushrooms",           "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Vegetable stock cube","quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Butter",              "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Parmesan cheese",     "quantity": 60,  "unit": "g",   "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "spinach-ricotta-pasta",
+      "name": "Spinach and Ricotta Pasta",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 5,
+      "cookTime": 20,
+      "tags": ["vegetarian", "pasta", "quick"],
+      "description": "Creamy, simple, on the table in 25 minutes. A reliable weeknight go-to.",
+      "ingredients": [
+        { "name": "Penne pasta",         "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Ricotta cheese",      "quantity": 250, "unit": "g",   "sku": null },
+        { "name": "Spinach",             "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Parmesan cheese",     "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "egg-fried-rice",
+      "name": "Egg Fried Rice",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 15,
+      "tags": ["vegetarian", "rice", "asian", "quick"],
+      "description": "A 25-minute one-pan dinner. Ideally made with day-old cold rice.",
+      "ingredients": [
+        { "name": "Long grain rice",     "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Egg",                 "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Frozen peas",         "quantity": 150, "unit": "g",   "sku": null },
+        { "name": "Spring onion",        "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Soy sauce",           "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Sesame oil",          "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "vegetable-noodle-stirfry",
+      "name": "Vegetable Stir-Fry with Noodles",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 15,
+      "tags": ["vegetarian", "asian", "noodles", "quick"],
+      "description": "Colourful, fast and endlessly adaptable to whatever veg you have.",
+      "ingredients": [
+        { "name": "Egg noodles",         "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Broccoli",            "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Bell pepper",         "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Mushrooms",           "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Soy sauce",           "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Sesame oil",          "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Sunflower oil",       "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "lentil-soup",
+      "name": "Red Lentil Soup",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 30,
+      "tags": ["vegetarian", "soup", "healthy", "one pot"],
+      "description": "Thick, warming and protein-packed. Serve with crusty bread.",
+      "ingredients": [
+        { "name": "Red lentils",         "quantity": 300, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Vegetable stock cube","quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Ground cumin",        "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Crusty bread",        "quantity": 1,   "unit": "loaf","sku": null }
+      ]
+    },
+
+    {
+      "id": "cheese-vegetable-omelette",
+      "name": "Cheese and Vegetable Omelette",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 15,
+      "tags": ["vegetarian", "eggs", "quick"],
+      "description": "Dinner omelettes — fast, filling, and no one complains.",
+      "ingredients": [
+        { "name": "Egg",                 "quantity": 8,   "unit": "pcs", "sku": null },
+        { "name": "Cheddar cheese",      "quantity": 100, "unit": "g",   "sku": null },
+        { "name": "Bell pepper",         "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Mushrooms",           "quantity": 150, "unit": "g",   "sku": null },
+        { "name": "Spinach",             "quantity": 80,  "unit": "g",   "sku": null },
+        { "name": "Butter",              "quantity": 30,  "unit": "g",   "sku": null },
+        { "name": "Milk",                "quantity": 4,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "vegetable-frittata",
+      "name": "Vegetable Frittata",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 25,
+      "tags": ["vegetarian", "eggs", "bake"],
+      "description": "Start on the hob, finish in the oven. Works hot or cold.",
+      "ingredients": [
+        { "name": "Egg",                 "quantity": 8,   "unit": "pcs", "sku": null },
+        { "name": "Potato",              "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Zucchini",            "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Bell pepper",         "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Cheddar cheese",      "quantity": 80,  "unit": "g",   "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "black-bean-tacos",
+      "name": "Black Bean Tacos",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 15,
+      "tags": ["vegetarian", "mexican", "quick"],
+      "description": "Just as satisfying as meat tacos, and on the table faster.",
+      "ingredients": [
+        { "name": "Tinned black beans",  "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Flour tortillas",     "quantity": 8,   "unit": "pcs", "sku": null },
+        { "name": "Tinned corn",         "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Cheddar cheese",      "quantity": 100, "unit": "g",   "sku": null },
+        { "name": "Sour cream",          "quantity": 100, "unit": "ml",  "sku": null },
+        { "name": "Avocado",             "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Lime",                "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Ground cumin",        "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Paprika",             "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    },
+
+    {
+      "id": "tomato-soup-toast",
+      "name": "Tomato Soup with Cheese Toast",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 5,
+      "cookTime": 25,
+      "tags": ["vegetarian", "soup", "quick", "comfort food"],
+      "description": "A childhood comfort classic. Ready in 30 minutes, loved by all ages.",
+      "ingredients": [
+        { "name": "Tinned tomatoes",     "quantity": 800, "unit": "g",   "sku": null },
+        { "name": "Crusty bread",        "quantity": 1,   "unit": "loaf","sku": null },
+        { "name": "Cheddar cheese",      "quantity": 150, "unit": "g",   "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Vegetable stock cube","quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Butter",              "quantity": 30,  "unit": "g",   "sku": null },
+        { "name": "Heavy cream",         "quantity": 50,  "unit": "ml",  "sku": null }
+      ]
+    },
+
+    {
+      "id": "pasta-primavera",
+      "name": "Pasta Primavera",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 20,
+      "tags": ["vegetarian", "pasta", "healthy"],
+      "description": "Fresh and colourful spring pasta with whatever vegetables you have.",
+      "ingredients": [
+        { "name": "Penne pasta",         "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Broccoli",            "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Zucchini",            "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Cherry tomatoes",     "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Frozen peas",         "quantity": 150, "unit": "g",   "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Parmesan cheese",     "quantity": 50,  "unit": "g",   "sku": null },
+        { "name": "Olive oil",           "quantity": 3,   "unit": "tbsp","sku": null }
+      ]
+    },
+
+    {
+      "id": "vegetable-chili",
+      "name": "Vegetable Chili",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 30,
+      "tags": ["vegetarian", "one pot", "comfort food"],
+      "description": "Rich, filling chili. Serve with rice, bread, or baked potatoes.",
+      "ingredients": [
+        { "name": "Tinned kidney beans", "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tinned black beans",  "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Tinned tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Bell pepper",         "quantity": 2,   "unit": "pcs", "sku": null },
+        { "name": "Onion",               "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Garlic",              "quantity": 3,   "unit": "cloves","sku": null },
+        { "name": "Ground cumin",        "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Paprika",             "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Olive oil",           "quantity": 2,   "unit": "tbsp","sku": null },
+        { "name": "Sour cream",          "quantity": 100, "unit": "ml",  "sku": null }
+      ]
+    },
+
+    {
+      "id": "caprese-pasta",
+      "name": "Caprese Pasta",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 5,
+      "cookTime": 15,
+      "tags": ["vegetarian", "pasta", "italian", "quick"],
+      "description": "Ripe tomatoes, mozzarella and basil tossed through hot pasta. Summer on a plate.",
+      "ingredients": [
+        { "name": "Penne pasta",         "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Cherry tomatoes",     "quantity": 400, "unit": "g",   "sku": null },
+        { "name": "Mozzarella cheese",   "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Garlic",              "quantity": 2,   "unit": "cloves","sku": null },
+        { "name": "Olive oil",           "quantity": 4,   "unit": "tbsp","sku": null },
+        { "name": "Dried basil",         "quantity": 1,   "unit": "tsp", "sku": null },
+        { "name": "Parmesan cheese",     "quantity": 30,  "unit": "g",   "sku": null }
+      ]
+    },
+
+    {
+      "id": "greek-salad-flatbread",
+      "name": "Greek Salad with Flatbread and Hummus",
+      "vegetarian": true,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 0,
+      "tags": ["vegetarian", "no-cook", "healthy", "quick"],
+      "description": "No cooking at all. Light, fresh and satisfying with good feta.",
+      "ingredients": [
+        { "name": "Flour tortillas",     "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Hummus",              "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Feta cheese",         "quantity": 200, "unit": "g",   "sku": null },
+        { "name": "Cucumber",            "quantity": 1,   "unit": "pcs", "sku": null },
+        { "name": "Tomato",              "quantity": 4,   "unit": "pcs", "sku": null },
+        { "name": "Black olives",        "quantity": 80,  "unit": "g",   "sku": null },
+        { "name": "Red onion",           "quantity": 0.5, "unit": "pcs", "sku": null },
+        { "name": "Olive oil",           "quantity": 3,   "unit": "tbsp","sku": null },
+        { "name": "Dried oregano",       "quantity": 1,   "unit": "tsp", "sku": null }
+      ]
+    }
+
+  ]
+}

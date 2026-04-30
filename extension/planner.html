@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meal Planner — Barbora Basket</title>
+  <link rel="stylesheet" href="planner.css">
+</head>
+<body>
+
+  <!-- ── Header ───────────────────────────────────────────────────────────── -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-title">🗓 Meal Planner</div>
+      <div class="header-sub">Pick your meals for the week</div>
+    </div>
+    <div class="header-right">
+      <div class="price-refresh-row">
+        <span id="price-age"></span>
+        <button class="btn-ghost" id="refresh-btn">↻ Refresh prices</button>
+      </div>
+      <div class="sel-count" id="sel-count">0 meals selected</div>
+      <button class="btn-add" id="add-btn" disabled>Add to shopping list →</button>
+    </div>
+  </div>
+
+  <!-- ── Filter bar ────────────────────────────────────────────────────────── -->
+  <div class="filter-bar">
+    <button class="filter-pill active" id="filter-all">All</button>
+    <button class="filter-pill" id="filter-veg">🌿 Vegetarian</button>
+    <button class="filter-pill" id="filter-favs">⭐ Favourites</button>
+    <button class="filter-pill" id="filter-recent">🕐 Recent</button>
+    <div class="filter-divider"></div>
+    <div id="tag-pills"></div>
+    <div class="filter-spacer"></div>
+    <button class="btn-pantry" id="pantry-btn">🥫 Pantry</button>
+  </div>
+
+  <!-- ── Selection summary bar ─────────────────────────────────────────────── -->
+  <div class="sel-bar" id="sel-bar" style="display:none">
+    <div class="sel-info">
+      <span id="sel-meals"></span>
+      <span class="sel-dot">·</span>
+      <span id="sel-items"></span>
+      <span class="sel-dot" id="sel-price-dot" style="display:none">·</span>
+      <span id="sel-price"></span>
+    </div>
+    <button class="btn-overlap" id="overlap-toggle" style="display:none">
+      0 shared ingredients ▾
+    </button>
+    <div class="overlap-panel" id="overlap-panel" style="display:none"></div>
+  </div>
+
+  <!-- ── Recipe grid ───────────────────────────────────────────────────────── -->
+  <div class="recipe-grid" id="recipe-grid"></div>
+
+  <!-- ── Pantry sidebar ────────────────────────────────────────────────────── -->
+  <div class="pantry-overlay" id="pantry-overlay" style="display:none"></div>
+  <div class="pantry-panel" id="pantry-panel">
+    <div class="pantry-header">
+      <div>
+        <div class="pantry-title">🥫 What's in my kitchen</div>
+        <div class="pantry-sub">Tick what you already have — those items will be skipped when building your shopping list.</div>
+      </div>
+      <button class="pantry-close" id="pantry-close">✕</button>
+    </div>
+    <div class="pantry-bar">
+      <button class="btn-ghost-sm" id="pantry-clear-btn">Clear all</button>
+    </div>
+    <div class="pantry-groups" id="pantry-groups"></div>
+  </div>
+
+  <!-- ── Success modal ─────────────────────────────────────────────────────── -->
+  <div class="overlay" id="overlay" style="display:none">
+    <div class="modal">
+      <div class="modal-icon">✓</div>
+      <div class="modal-title">Added to shopping list</div>
+      <div class="modal-body" id="modal-body"></div>
+      <button class="btn-done" id="done-btn">Done</button>
+    </div>
+  </div>
+
+  <script src="planner.js"></script>
+</body>
+</html>

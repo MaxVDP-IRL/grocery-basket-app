@@ -1,0 +1,566 @@
+{
+  "Arborio rice": {
+    "image": "https://cdn.barbora.ee/products/0337948d-201a-4489-8f26-1e020c4375dd_s.png",
+    "price": 2.99,
+    "sku": "000000000000178575",
+    "title": "Riis Risotto Arborio RISO SCOTTI 500g"
+  },
+  "Avocado": {
+    "image": "https://cdn.barbora.ee/products/ecf9e295-5c83-4256-8abb-9e4cf6b56c5c_s.png",
+    "price": 2.99,
+    "sku": "000000000000491708",
+    "title": "Avokaado HASS võrgus, 750g"
+  },
+  "Beef mince": {
+    "image": "https://cdn.barbora.ee/products/eb2c8d14-67aa-45b9-adeb-26240e53bd01_s.png",
+    "price": 4.39,
+    "sku": "000000000001141131",
+    "title": "Sea- ja veisehakkliha M&M, 500g"
+  },
+  "Beef stock cube": {
+    "image": "https://cdn.barbora.ee/products/d956b002-dc28-4b1c-8f3f-17ebee2c827c_s.png",
+    "price": 1.55,
+    "sku": "000000000001266705",
+    "title": "Veisepuljong MAGGI 80g"
+  },
+  "Beef strips": {
+    "image": "https://cdn.barbora.ee/products/2c90269e-afb7-4b0a-8bc6-6a3461d05b8b_s.png",
+    "price": 4.09,
+    "sku": "000000000001147349",
+    "title": "Ribitükid punases marinaadis RAKVERE, kg"
+  },
+  "Beef strips or steak": {
+    "image": "https://cdn.barbora.ee/products/6138e5d9-41d6-4587-9f23-ab61870438ea_s.png",
+    "price": 6.89,
+    "sku": "000000000001344611",
+    "title": "Veiseliha steik kondita WELL DONE,220g"
+  },
+  "Bell pepper": {
+    "image": "https://cdn.barbora.ee/products/98276008-6a6c-4237-b5e8-e527c103c478_s.png",
+    "price": 3.29,
+    "sku": "000000000000181248",
+    "title": "Punane paprika 1.kl.,kg"
+  },
+  "Black olives": {
+    "image": "https://cdn.barbora.ee/products/f6b7a5da-f087-4473-a9aa-63e386e6c4cb_s.png",
+    "price": 1.79,
+    "sku": "000000000001320944",
+    "title": "Mustad oliivid, kivideta WELL DONE 270g"
+  },
+  "Breadcrumbs": {
+    "image": "https://cdn.barbora.ee/products/92fe0e1e-857a-4bf7-94ee-e6bae1228b4a_s.png",
+    "price": 1.29,
+    "sku": "000000000000139766",
+    "title": "Riivsai TARTU MILL 400g"
+  },
+  "Broccoli": {
+    "image": "https://cdn.barbora.ee/products/0f9a3548-2c16-4746-9cc0-f612511219cc_s.png",
+    "price": 1.69,
+    "sku": "000000000001313521",
+    "title": "Külmutatud brokkoli WELL DONE, 400g"
+  },
+  "Burger buns": {
+    "image": "https://cdn.barbora.ee/products/2003c0e8-cf0f-4375-b1c5-2b82de6f5752_s.png",
+    "price": 1.99,
+    "sku": "000000000000994757",
+    "title": "Burgerikukkel seesamis.Eesti Pagar 320g"
+  },
+  "Butter": {
+    "image": "https://cdn.barbora.ee/products/f28e3d59-8af8-46b3-ab7c-044f487e3868_s.png",
+    "price": 2.45,
+    "sku": "000000000001406488",
+    "title": "Või WELL DONE 82% 500g"
+  },
+  "Caesar dressing": {
+    "image": "https://cdn.barbora.ee/products/94217941-1634-49a9-9847-95a639a9b572_s.png",
+    "price": 1.99,
+    "sku": "000000000000721772",
+    "title": "Salatikaste FELIX Caesar 375g"
+  },
+  "Celery": {
+    "image": "https://cdn.barbora.ee/products/b9cd49d4-61f0-442e-81b4-9df554c0d1cc_s.png",
+    "price": 1.65,
+    "sku": "000000000000181136",
+    "title": "Varsseller, 350g"
+  },
+  "Cheddar cheese": {
+    "image": "https://cdn.barbora.ee/products/4806e10e-1033-4a1f-a6ce-e62f70dd8ce1_s.png",
+    "price": 1.69,
+    "sku": "000000000001133751",
+    "title": "Riivjuust EESTI JUUST, 200g"
+  },
+  "Chicken breast": {
+    "image": "https://cdn.barbora.ee/products/94ca7fb6-6a8c-48a2-aa63-7cec79543b00_s.png",
+    "price": 9.35,
+    "sku": "000000000000632017",
+    "title": "Eestimain.br.rinnafilee A-kl TALLEGG, kg"
+  },
+  "Chicken stock cube": {
+    "image": "https://cdn.barbora.ee/products/d9da3ee3-130c-4735-95de-5249cf5d9635_s.png",
+    "price": 0.99,
+    "sku": "000000000000014652",
+    "title": "Kanapuljong MAGGI 12x10g"
+  },
+  "Chicken thigh": {
+    "image": "https://cdn.barbora.ee/products/5f2eef27-a24d-43a5-b8b5-aad76dbdc8ac_s.png",
+    "price": 4.89,
+    "sku": "000000000001407467",
+    "title": "Br.kintsuliha koduses marin.TALLEGG,400g"
+  },
+  "Coconut milk": {
+    "image": "https://cdn.barbora.ee/products/23303f56-3918-4e81-ad50-7065f39bf161_s.png",
+    "price": 3.09,
+    "sku": "000000000001014782",
+    "title": "Kookosjook FUDO 400ml"
+  },
+  "Cooked prawns": {
+    "image": "https://cdn.barbora.ee/products/996a1ccb-1f43-4b2d-a99b-ed964477f31b_s.png",
+    "price": 9.69,
+    "sku": "000000000001319446",
+    "title": "Külm.krevetid keed.kooregaWELL DONE,800g"
+  },
+  "Corn starch": {
+    "image": "https://cdn.barbora.ee/products/3f792836-50ec-41f6-a000-6cddaf1e03fb_s.png",
+    "price": 2.08,
+    "sku": "000000000000640041",
+    "title": "Maisitärklis MÜLLER'S MÜHLE 400g"
+  },
+  "Crusty bread": {
+    "image": "https://cdn.barbora.ee/products/38ea3c1f-a44f-480b-b034-9f72bd5877c7_s.png",
+    "price": 1.59,
+    "sku": "000000000000139554",
+    "title": "Koorikleib Rukkipala LEIBUR 6tk(330g)"
+  },
+  "Cucumber": {
+    "image": "https://cdn.barbora.ee/products/c7c6f16b-3fe0-4890-99be-e1eddede2cfb_s.png",
+    "price": 4.29,
+    "sku": "000000000000181217",
+    "title": "Kurk pikk, kiles, kg"
+  },
+  "Curry powder": {
+    "image": "https://cdn.barbora.ee/products/4b54b6e4-640b-4b56-8bbd-ceee5752b44c_s.png",
+    "price": 0.89,
+    "sku": "000000000000014173",
+    "title": "Karri SANTA MARIA, 25g"
+  },
+  "Dijon mustard": {
+    "image": "https://cdn.barbora.ee/products/16333373-0b33-4a2d-8f2a-f100f26524e3_s.png",
+    "price": 2.09,
+    "sku": "000000000001310945",
+    "title": "Sinep Dijoni teraline VILUX 200g"
+  },
+  "Dried basil": {
+    "image": "https://cdn.barbora.ee/products/fe72ab79-d1a6-4727-b616-ad045524fe25_s.png",
+    "price": 1.09,
+    "sku": "000000000001081764",
+    "title": "Basiilik SANTA MARIA 6g"
+  },
+  "Dried chilli flakes": {
+    "image": "https://cdn.barbora.ee/products/585176a0-1ca1-48b1-9ed3-f1477ed8872a_s.png",
+    "price": 2.15,
+    "sku": "000000000001151361",
+    "title": "Tšillipulber SANTA MARIA 41g"
+  },
+  "Dried dill": {
+    "image": "https://cdn.barbora.ee/products/079c542e-8e8b-4f98-ab7b-091514beea10_s.png",
+    "price": 1.39,
+    "sku": "000000000000163655",
+    "title": "Peen.till KOTANYI 11g"
+  },
+  "Dried oregano": {
+    "image": "https://cdn.barbora.ee/products/4f1a610c-6799-4d14-9639-e0be2c0fc1b3_s.png",
+    "price": 1.39,
+    "sku": "000000000000396215",
+    "title": "Pune KOTANYI, 8g"
+  },
+  "Dried parsley": {
+    "image": "https://cdn.barbora.ee/products/77f6761b-024a-4993-b362-717e5fa0a2b2_s.png",
+    "price": 0.89,
+    "sku": "000000000000825925",
+    "title": "Petersell SANTA MARIA,4 g"
+  },
+  "Dried rosemary": {
+    "image": "https://cdn.barbora.ee/products/06582495-b8a1-4c7e-9c3c-28f11dd5c2a5_s.png",
+    "price": 0.89,
+    "sku": "000000000000544894",
+    "title": "Rosmariin SANTA MARIA ,15g"
+  },
+  "Dried thyme": {
+    "image": "https://cdn.barbora.ee/products/8834c41e-3461-4e26-9ee8-facb2573b401_s.png",
+    "price": 0.89,
+    "sku": "000000000000544896",
+    "title": "Tüümian SANTA MARIA, 10g"
+  },
+  "Egg": {
+    "image": "https://cdn.barbora.ee/products/8d7b2d30-4c1a-47ee-8ccd-6bca9ce90405_s.png",
+    "price": 2.29,
+    "sku": "000000000001267236",
+    "title": "Õrrekanade munad M KOKO, 10tk"
+  },
+  "Egg noodles": {
+    "image": "https://cdn.barbora.ee/products/8791166a-6886-4987-b9df-6422b672fdcc_s.png",
+    "price": 1.45,
+    "sku": "000000000001341715",
+    "title": "Munanuudlid THAI CHOICE 200g"
+  },
+  "Feta cheese": {
+    "image": "https://cdn.barbora.ee/products/9cb07232-39b1-4772-a6fd-e8c6606b6025_s.png",
+    "price": 1.95,
+    "sku": "000000000001353233",
+    "title": "Pehme salatijuust FARM MILK 40%, 200g"
+  },
+  "Flour tortillas": {
+    "image": "https://cdn.barbora.ee/products/b7a16c9d-3932-4d7e-acfa-039bc2b8ba81_s.png",
+    "price": 1.99,
+    "sku": "000000000001239661",
+    "title": "Täistera tortilla EESTI PAGAR 360g"
+  },
+  "Fresh dill": {
+    "image": "https://cdn.barbora.ee/products/7ac0b592-6521-414b-9963-ecf2258b8044_s.png",
+    "price": 0.95,
+    "sku": "000000000000089447",
+    "title": "Till kiles, 30g"
+  },
+  "Frozen peas": {
+    "image": "https://cdn.barbora.ee/products/1090ce0b-b3e8-4ad6-b50a-30ba452fbd63_s.png",
+    "price": 1.45,
+    "sku": "000000000001313532",
+    "title": "Külmutatud herned WELL DONE, 400g"
+  },
+  "Garlic": {
+    "image": "https://cdn.barbora.ee/products/21b80ba5-c25b-49f1-adcb-3c1c7c8d9454_s.png",
+    "price": 5.69,
+    "sku": "000000000000180991",
+    "title": "Küüslauk, kg"
+  },
+  "Garlic powder": {
+    "image": "https://cdn.barbora.ee/products/f16091fa-4cb2-41f6-b3b3-3df544af184e_s.png",
+    "price": 3.19,
+    "sku": "000000000001311324",
+    "title": "Mahe küüslaugupulber SANTA MARIA 46g"
+  },
+  "Ground cumin": {
+    "image": "https://cdn.barbora.ee/products/0f57f5b5-71af-4f42-9ddb-e628d99e23a8_s.png",
+    "price": 0.89,
+    "sku": "000000000000544008",
+    "title": "Köömned SANTA MARIA 20 g "
+  },
+  "Heavy cream": {
+    "image": "https://cdn.barbora.ee/products/634524c4-7fd4-4f9f-87be-7402ed7fc578_s.png",
+    "price": 2.39,
+    "sku": "000000000001253811",
+    "title": "Vahukoor TERE 35% laktoosivaba, 400ml"
+  },
+  "Honey": {
+    "image": "https://cdn.barbora.ee/products/783c6112-e221-430c-8052-295828ac3000_s.png",
+    "price": 6.85,
+    "sku": "000000000001221337",
+    "title": "Kodu Mesi SP MESILA 1kg"
+  },
+  "Hummus": {
+    "image": "https://cdn.barbora.ee/products/dc8c548c-8f57-4759-a46a-ca4e427924d1_s.png",
+    "price": 1.99,
+    "sku": "000000000001307253",
+    "title": "Hummus naturaalne,200g"
+  },
+  "Iceberg lettuce": {
+    "image": "https://cdn.barbora.ee/products/acd3cd01-2e6c-4be5-b5c0-59bba75b249f_s.png",
+    "price": 2.69,
+    "sku": "000000000000181137",
+    "title": "Jääsalat 400g"
+  },
+  "Ketchup": {
+    "image": "https://cdn.barbora.ee/products/31d5f5c2-e158-4403-82e2-9e5c874af45f_s.png",
+    "price": 3.19,
+    "sku": "000000000001033521",
+    "title": "Tomatiketšup FELIX 1kg"
+  },
+  "Lemon": {
+    "image": "https://cdn.barbora.ee/products/279320b0-1abb-47dd-b7ed-56b2da28ada8_s.png",
+    "price": 2.99,
+    "sku": "000000000000182307",
+    "title": "Sidrun, kg"
+  },
+  "Lime": {
+    "image": "https://cdn.barbora.ee/products/a53e00e3-46aa-423b-864b-7f06067b7602_s.png",
+    "price": 4.99,
+    "sku": "000000000000182332",
+    "title": "Laim 1kl, kg"
+  },
+  "Long grain rice": {
+    "image": "https://cdn.barbora.ee/products/ccee2800-7604-44ad-af1a-329acec6ceef_s.png",
+    "price": 1.39,
+    "sku": "000000000001335044",
+    "title": "Riis pikateraline WELL DONE 800g"
+  },
+  "Milk": {
+    "image": "https://cdn.barbora.ee/products/2653480e-27b4-4ed0-b46b-12dce558c8e4_s.png",
+    "price": 1.39,
+    "sku": "000000000000139701",
+    "title": "Piim ALMA 2,5%, 1,5L"
+  },
+  "Mozzarella cheese": {
+    "image": "https://cdn.barbora.ee/products/83799a8a-82fc-4173-8fff-c278cec9b94a_s.png",
+    "price": 1.19,
+    "sku": "000000000001361103",
+    "title": "Juust Mozzarella WELL DONE 125/210g"
+  },
+  "Mushrooms": {
+    "image": "https://cdn.barbora.ee/products/51b1514b-6325-42c0-a44d-a7002c342f33_s.png",
+    "price": 1.99,
+    "sku": "000000000000182169",
+    "title": "Šampinjonid pakitud, 400g"
+  },
+  "Mustard": {
+    "image": "https://cdn.barbora.ee/products/91dea38e-64a1-47c4-859f-76cdc244e126_s.png",
+    "price": 1.03,
+    "sku": "000000000000456104",
+    "title": "Sinep kange MAADLEX 75g"
+  },
+  "Natural yogurt": {
+    "image": "https://cdn.barbora.ee/products/670ba527-a3cc-4225-8c65-1bbdc1758fb5_s.png",
+    "price": 0.91,
+    "sku": "000000000001020993",
+    "title": "Jogurt FARM MILK Naturaalne 3%, 400g"
+  },
+  "Olive oil": {
+    "image": "https://cdn.barbora.ee/products/1e88d6e3-60f1-4d77-b71f-27788933b2ed_s.png",
+    "price": 8.35,
+    "sku": "000000000001314404",
+    "title": "Oliiviõli Extra Light KALEW 500ml"
+  },
+  "Onion": {
+    "image": "https://cdn.barbora.ee/products/9c290324-24db-4b46-b2a4-a796ece4a722_s.png",
+    "price": 0.35,
+    "sku": "000000000000180990",
+    "title": "Sibul,kg"
+  },
+  "Pappardelle pasta": {
+    "image": "https://cdn.barbora.ee/products/3da007a8-b322-4b00-9df5-fcf872a61a57_s.png",
+    "price": 2.02,
+    "sku": "000000000001400461",
+    "title": "Makar.Pappardelle nr105 LAMOLISANA 500g"
+  },
+  "Paprika": {
+    "image": "https://cdn.barbora.ee/products/3f859511-6d21-4ea6-8b5b-6b0d46affdc9_s.png",
+    "price": 0.59,
+    "sku": "000000000000766818",
+    "title": "Tsilli paprika SALDVA 25g"
+  },
+  "Parmesan cheese": {
+    "image": "https://cdn.barbora.ee/products/4a978c68-36a4-4ab0-af28-430381360c70_s.png",
+    "price": 1.99,
+    "sku": "000000000001149244",
+    "title": "Parmesani juustu Super Snack M&M,85g"
+  },
+  "Penne pasta": {
+    "image": "https://cdn.barbora.ee/products/99a6f68c-16fb-43ac-b381-2d60c40771d4_s.png",
+    "price": 1.37,
+    "sku": "000000000001390371",
+    "title": "Makaron.Maccheroni Lisci TARTU MILL 500g"
+  },
+  "Pita bread": {
+    "image": "https://cdn.barbora.ee/products/3df9bfc2-28fa-4c49-b03a-d735ecd4c66c_s.png",
+    "price": 1.29,
+    "sku": "000000000001086209",
+    "title": "Peedi-porgandi-pastinaagi pehmik EP 240g"
+  },
+  "Plain flour": {
+    "image": "https://cdn.barbora.ee/products/3c31e429-7f43-4e86-b1f0-99305e5b47e1_s.png",
+    "price": 1.25,
+    "sku": "000000000000145805",
+    "title": "Eesti nisujahu k/s T-405 KALEW  1kg"
+  },
+  "Pork loin chops": {
+    "image": "https://cdn.barbora.ee/products/ef92d5a1-e82c-4b29-89f5-06cc2b43138c_s.png",
+    "price": 2.59,
+    "sku": "000000000001397967",
+    "title": "Seapeekoni viilud ABta WELL DONE,400g"
+  },
+  "Pork mince": {
+    "image": "https://cdn.barbora.ee/products/385f4dd1-0565-4322-a27b-50c26ecf8272_s.png",
+    "price": 3.55,
+    "sku": "000000000000960165",
+    "title": "Seahakkliha M&M, 500g"
+  },
+  "Pork sausages": {
+    "image": "https://cdn.barbora.ee/products/a92f454d-b936-4198-90a1-0753c470038b_s.png",
+    "price": 2.49,
+    "sku": "000000000001358058",
+    "title": "Toorvorstid sealihast WELL DONE, 400g"
+  },
+  "Pork tenderloin": {
+    "image": "https://cdn.barbora.ee/products/333139ae-7d59-4129-bf6e-84b103e8c310_s.png",
+    "price": 9.19,
+    "sku": "000000000001409462",
+    "title": "Seavälisfilee steik ukrainapärane,kg"
+  },
+  "Potato": {
+    "image": "https://cdn.barbora.ee/products/d1c0ec0f-440e-481f-9607-0923c14edf06_s.png",
+    "price": 0.39,
+    "sku": "000000000000180893",
+    "title": "Kartul lahtine, kg"
+  },
+  "Potatoes": {
+    "image": "https://cdn.barbora.ee/products/d1c0ec0f-440e-481f-9607-0923c14edf06_s.png",
+    "price": 0.39,
+    "sku": "000000000000180893",
+    "title": "Kartul lahtine, kg"
+  },
+  "Red lentils": {
+    "image": "https://cdn.barbora.ee/products/a9be49dd-7fcc-4c14-9cb1-416e9dc2dd35_s.png",
+    "price": 1.57,
+    "sku": "000000000001337305",
+    "title": "Punased läätsed WELL DONE 400g"
+  },
+  "Red onion": {
+    "image": "https://cdn.barbora.ee/products/cf3c2569-e094-4d0f-9b2e-c083de0c27e6_s.png",
+    "price": 0.99,
+    "sku": "000000000000180992",
+    "title": "Punane sibul, kg"
+  },
+  "Ricotta cheese": {
+    "image": "https://cdn.barbora.ee/products/fee7f319-3467-49ab-ba69-ee3196b4dd6d_s.png",
+    "price": 0.59,
+    "sku": "000000000001304147",
+    "title": "Kohupiim OTTO Ricotta, 200g"
+  },
+  "Romaine lettuce": {
+    "image": "https://cdn.barbora.ee/products/e62dd78d-c608-4e1d-b471-cfb6b3ccacc6_s.png",
+    "price": 1.79,
+    "sku": "000000000000672656",
+    "title": "Salat Frillice pakis GRÜNE FEE"
+  },
+  "Salmon fillet": {
+    "image": "https://cdn.barbora.ee/products/28f505d6-7b0b-43e8-b9a9-c298243ab857_s.png",
+    "price": 9.99,
+    "sku": "000000000000893088",
+    "title": "Jahutatud lõhe, kg"
+  },
+  "Sesame oil": {
+    "image": "https://cdn.barbora.ee/products/b61d12b8-768a-4d07-bf03-7f9feb5d8084_s.png",
+    "price": 3.89,
+    "sku": "000000000001300585",
+    "title": "Seesamiõli KIKKOMAN 125ml"
+  },
+  "Sour cream": {
+    "image": "https://cdn.barbora.ee/products/7c6f5878-a243-41e4-bb89-62f0e5dbac9b_s.png",
+    "price": 1.98,
+    "sku": "000000000000139709",
+    "title": " Hapukoor ALMA 20%, 500g"
+  },
+  "Soy sauce": {
+    "image": "https://cdn.barbora.ee/products/5c9109c3-fee8-4375-8d2a-ae7095896e3e_s.png",
+    "price": 1.39,
+    "sku": "000000000000019949",
+    "title": "Hele sojakaste PEARL RIVER BRIDGE 150ml"
+  },
+  "Spaghetti": {
+    "image": "https://cdn.barbora.ee/products/06d86ec8-0d4c-4ca9-b6f0-e7dd574748f6_s.png",
+    "price": 0.99,
+    "sku": "000000000001021375",
+    "title": "Spagetid nr7 TARTU MILL 500g"
+  },
+  "Spinach": {
+    "image": "https://cdn.barbora.ee/products/f684c56b-bd8d-4bce-9303-c976467493ba_s.png",
+    "price": 1.25,
+    "sku": "000000000001359556",
+    "title": "Külm. hakitud spinat Härmavili 300g"
+  },
+  "Spring onion": {
+    "image": "https://cdn.barbora.ee/products/40e00933-953c-4140-8f66-04cc9d40df9b_s.png",
+    "price": 12.99,
+    "sku": "000000000000181038",
+    "title": "Roheline sibul , kg (pakitud)"
+  },
+  "Sunflower oil": {
+    "image": "https://cdn.barbora.ee/products/5325934c-fd97-4105-aef5-89b909d866be_s.png",
+    "price": 1.49,
+    "sku": "000000000001287142",
+    "title": "Päevalilleõli EXTRA LINE 1L"
+  },
+  "Taco shells or wraps": {
+    "image": "https://cdn.barbora.ee/products/44c1dd0c-96f8-4732-88e8-d8003312dc2e_s.png",
+    "price": 1.19,
+    "sku": "000000000001037093",
+    "title": "Taco maitseainesegu SANTA MARIA 28g"
+  },
+  "Tikka masala paste": {
+    "image": "https://cdn.barbora.ee/products/d7ef5558-1312-4871-a2a5-1c2687013847_s.png",
+    "price": 1.55,
+    "sku": "000000000001068184",
+    "title": "Maitseaine Tikka Masala SANTA MARIA 35g"
+  },
+  "Tinned black beans": {
+    "image": "https://cdn.barbora.ee/products/a3bab6fc-dbac-4f5d-9166-d658b79e4955_s.png",
+    "price": 1.59,
+    "sku": "000000000001320207",
+    "title": "Kons. Borlotti oad Well Done 400g"
+  },
+  "Tinned chickpeas": {
+    "image": "https://cdn.barbora.ee/products/834fca46-7ebb-4356-bcdf-72239c186cac_s.png",
+    "price": 1.45,
+    "sku": "000000000000981107",
+    "title": "Aurutat. kikerhern.vapeur BONDUELLE 310g"
+  },
+  "Tinned corn": {
+    "image": "https://cdn.barbora.ee/products/52e81d41-7071-424e-b245-1053987e629a_s.png",
+    "price": 1.25,
+    "sku": "000000000000455252",
+    "title": "Magus mais BONDUELLE 340g"
+  },
+  "Tinned kidney beans": {
+    "image": "https://cdn.barbora.ee/products/f52e2475-9c5e-4de6-bf56-24a188e23caf_s.png",
+    "price": 1.15,
+    "sku": "000000000001225131",
+    "title": "Kons.punased oad EXTRA LINE 400g"
+  },
+  "Tinned tomatoes": {
+    "image": "https://cdn.barbora.ee/products/9bbb0e8c-5d7c-455c-82f7-7afc58ec5a56_s.png",
+    "price": 1.59,
+    "sku": "000000000001320211",
+    "title": "Kons.tük.koorit.tomatid WELL DONE 400g"
+  },
+  "Tinned tuna": {
+    "image": "https://cdn.barbora.ee/products/514a780e-cbf2-4189-9c72-01dbc0418186_s.png",
+    "price": 1.95,
+    "sku": "000000000000562187",
+    "title": "Tuunikala purust.om.mahlas OCEAN EO 185g"
+  },
+  "Tomato": {
+    "image": "https://cdn.barbora.ee/products/35206be3-a0db-4c84-bd71-8b98debd3db9_s.png",
+    "price": 2.99,
+    "sku": "000000000000181259",
+    "title": "Tomat lahtine 1 kl., kg"
+  },
+  "Tomato paste": {
+    "image": "https://cdn.barbora.ee/products/cc013daf-d479-4914-a0ed-779c96d7a0ef_s.png",
+    "price": 1.89,
+    "sku": "000000000000445403",
+    "title": "Tomatipasta 20% SALVEST300g"
+  },
+  "Vegetable stock cube": {
+    "image": "https://cdn.barbora.ee/products/12be5b03-9bb8-4676-972e-9d6882658f89_s.png",
+    "price": 0.55,
+    "sku": "000000000000799839",
+    "title": "Köögiviljapuljong GALLINA BLANCA 8x10g"
+  },
+  "White fish fillet": {
+    "image": "https://cdn.barbora.ee/products/98e288c9-02a5-4947-93b8-743511ad1e2a_s.png",
+    "price": 6.29,
+    "sku": "000000000001337234",
+    "title": "Külm.meriahvena filee nahaga, 600g"
+  },
+  "Zucchini": {
+    "image": "https://cdn.barbora.ee/products/ee59a283-1992-43f3-bafc-fe24b8118f62_s.png",
+    "price": 3.39,
+    "sku": "000000000000181189",
+    "title": "Suvikõrvits roheline, kg"
+  },
+  "Cherry tomatoes": {
+    "sku": "000000000000509531",
+    "title": "Kirss-ploomtomat, 250g",
+    "price": 2.49,
+    "image": "https://cdn.barbora.ee/products/30e5708e-6395-4b38-8c66-57a8f60c85a7_s.png"
+  }
+}
