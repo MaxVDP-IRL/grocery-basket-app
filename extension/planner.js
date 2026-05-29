@@ -24,9 +24,11 @@ const SERVING_OPTIONS = [2, 4, 6, 8];
 
 // ── State ─────────────────────────────────────────────────────────────────────
 
-let recipes         = [];
-let ingredientMap   = {};
-let selected        = new Set();    // recipeId
+let recipes           = [];
+let ingredientMap       = {};   // Barbora
+let rimiIngredientMap   = {};   // Rimi
+let selverIngredientMap = {};   // Selver
+let selected          = new Set();    // recipeId
 let servings        = {};           // { recipeId: number }
 let favourites      = new Set();    // recipeId
 let history         = [];           // [{ date: ISO, ids: [], names: [] }]
@@ -43,12 +45,15 @@ async function init() {
   const [recipesData, stored] = await Promise.all([
     fetch(chrome.runtime.getURL('recipes.json')).then(r => r.json()),
     chrome.storage.local.get([
-      'ingredientMap','favourites','mealHistory','pantryItems','pricesUpdatedAt',
+      'ingredientMap','rimiIngredientMap','selverIngredientMap',
+      'favourites','mealHistory','pantryItems','pricesUpdatedAt',
     ]),
   ]);
 
-  recipes         = recipesData.recipes;
-  ingredientMap   = stored.ingredientMap  || {};
+  recipes           = recipesData.recipes;
+  ingredientMap       = stored.ingredientMap       || {};
+  rimiIngredientMap   = stored.rimiIngredientMap   || {};
+  selverIngredientMap = stored.selverIngredientMap || {};
   favourites      = new Set(stored.favourites   || []);
   history         = stored.mealHistory    || [];
   pantryItems     = new Set(stored.pantryItems  || []);
@@ -187,13 +192,14 @@ function bindCardEvents(root) {
 
 // ── Card HTML ─────────────────────────────────────────────────────────────────
 
-function recipeEstimatedPrice(r, srv) {
+function recipeEstimatedPrice(r, srv, map) {
+  const m2   = map || ingredientMap;
   const mult = Math.max(1, Math.ceil((srv || 4) / 4));
-  let total = 0;
+  let total  = 0;
   r.ingredients.forEach(ing => {
     if (pantryItems.has(ing.name)) return;
-    const m = ingredientMap[ing.name];
-    if (m) total += (m.price || 0) * mult;
+    const entry = m2[ing.name];
+    if (entry) total += (entry.price || 0) * mult;
   });
   return total;
 }
@@ -212,10 +218,12 @@ function cardHTML(r) {
   const isSel    = selected.has(r.id);
   const isFav    = favourites.has(r.id);
   const totalMin = r.prepTime + r.cookTime;
-  const unmapped = r.ingredients.filter(i => !ingredientMap[i.name]).length;
-  const srv      = servings[r.id] || 4;
-  const price    = recipeEstimatedPrice(r, srv);
-  const tags     = r.tags.filter(t => t !== 'vegetarian').slice(0, 2);
+  const unmapped   = r.ingredients.filter(i => !ingredientMap[i.name] && !rimiIngredientMap[i.name] && !selverIngredientMap[i.name]).length;
+  const srv        = servings[r.id] || 4;
+  const bPrice     = recipeEstimatedPrice(r, srv, ingredientMap);
+  const rPrice     = recipeEstimatedPrice(r, srv, rimiIngredientMap);
+  const sPrice     = recipeEstimatedPrice(r, srv, selverIngredientMap);
+  const tags       = r.tags.filter(t => t !== 'vegetarian').slice(0, 2);
   const madeLabel= lastMadeLabel(r.id);
 
   return `
@@ -233,7 +241,27 @@ function cardHTML(r) {
       <div class="card-meta">
         <span>⏱ ${totalMin} min</span>
         <span>${r.ingredients.length} ingredients</span>
-        ${price > 0 ? `<span class="price-badge">~€${price.toFixed(2)}</span>` : ''}
+        ${(() => {
+            const prices = [
+              { label: 'B', name: 'Barbora', val: bPrice },
+              { label: 'R', name: 'Rimi',    val: rPrice },
+              { label: 'S', name: 'Selver',  val: sPrice },
+            ].filter(p => p.val > 0);
+            if (!prices.length) return '';
+            prices.sort((a, b) => a.val - b.val);
+            const best    = prices[0];
+            const tooltip = prices.map(p => `${p.name} ~€${p.val.toFixed(2)}`).join(' · ');
+            if (prices.length === 1) {
+              return `<span class="price-badge" title="${tooltip}">~€${best.val.toFixed(2)}</span>`;
+            }
+            const worst   = prices[prices.length - 1];
+            const saving  = (worst.val - best.val).toFixed(2);
+            return `<span class="price-badge" title="${tooltip}">
+                      <span style="color:var(--green-dark)">${best.label} €${best.val.toFixed(2)}</span>
+                      <span style="color:#aaa;font-size:10px"> ↓€${saving} vs ${worst.label}</span>
+                    </span>`;
+          })()
+        }
         ${unmapped > 0 ? `<span class="warn">⚠ ${unmapped} unmapped</span>` : ''}
       </div>
       ${isSel ? `
@@ -304,16 +332,33 @@ function updateSelectionUI() {
 
   const items = aggregateItems();
   const cost  = computeTotalCost();
+  const { barbora: bCost, rimi: rCost, selver: sCost } = cost;
 
   document.getElementById('sel-meals').textContent = `${count} meal${count !== 1 ? 's' : ''}`;
   document.getElementById('sel-items').textContent = `${items.length} item${items.length !== 1 ? 's' : ''}`;
   const priceEl    = document.getElementById('sel-price');
   const priceDotEl = document.getElementById('sel-price-dot');
-  if (cost > 0) {
-    priceEl.textContent    = `~€${cost.toFixed(2)}`;
+
+  const allCosts = [
+    { name: 'Barbora', short: 'B', val: bCost },
+    { name: 'Rimi',    short: 'R', val: rCost },
+    { name: 'Selver',  short: 'S', val: sCost },
+  ].filter(c => c.val > 0);
+
+  if (allCosts.length) {
     priceDotEl.style.display = '';
+    allCosts.sort((a, b) => a.val - b.val);
+    if (allCosts.length === 1) {
+      priceEl.textContent = `~€${allCosts[0].val.toFixed(2)}`;
+    } else {
+      const best   = allCosts[0];
+      const worst  = allCosts[allCosts.length - 1];
+      const saving = (worst.val - best.val).toFixed(2);
+      const parts  = allCosts.map(c => `${c.short} ~€${c.val.toFixed(2)}`).join(' · ');
+      priceEl.textContent = `${parts} — ${best.name} saves €${saving}`;
+    }
   } else {
-    priceEl.textContent    = '';
+    priceEl.textContent      = '';
     priceDotEl.style.display = 'none';
   }
 
@@ -321,18 +366,22 @@ function updateSelectionUI() {
 }
 
 function computeTotalCost() {
-  let total = 0;
+  let bTotal = 0, rTotal = 0, sTotal = 0;
   for (const id of selected) {
     const recipe = recipes.find(r => r.id === id);
     if (!recipe) continue;
     const mult = Math.max(1, Math.ceil((servings[id] || 4) / 4));
     recipe.ingredients.forEach(ing => {
       if (pantryItems.has(ing.name)) return;
-      const m = ingredientMap[ing.name];
-      if (m) total += (m.price || 0) * mult;
+      const bm = ingredientMap[ing.name];
+      const rm = rimiIngredientMap[ing.name];
+      const sm = selverIngredientMap[ing.name];
+      if (bm) bTotal += (bm.price || 0) * mult;
+      if (rm) rTotal += (rm.price || 0) * mult;
+      if (sm) sTotal += (sm.price || 0) * mult;
     });
   }
-  return total;
+  return { barbora: bTotal, rimi: rTotal, selver: sTotal };
 }
 
 // ── Overlap ───────────────────────────────────────────────────────────────────
@@ -389,7 +438,9 @@ function toggleOverlap() {
 
 // ── Aggregation ───────────────────────────────────────────────────────────────
 
-function aggregateItems() {
+function aggregateItems(map, store) {
+  const useMap   = map   || ingredientMap;
+  const useStore = store || 'barbora';
   const acc = new Map(); // sku → item
 
   for (const id of selected) {
@@ -399,13 +450,20 @@ function aggregateItems() {
 
     recipe.ingredients.forEach(ing => {
       if (pantryItems.has(ing.name)) return;
-      const m = ingredientMap[ing.name];
+      const m = useMap[ing.name];
       if (!m) return;
 
       if (acc.has(m.sku)) {
         acc.get(m.sku).quantity += mult;
       } else {
-        acc.set(m.sku, { sku: m.sku, title: m.title, price: m.price, image: m.image || '', quantity: mult });
+        acc.set(m.sku, {
+          sku:      m.sku,
+          title:    m.title,
+          price:    m.price,
+          image:    m.image || '',
+          quantity: mult,
+          store:    useStore,
+        });
       }
     });
   }
@@ -416,8 +474,36 @@ function aggregateItems() {
 // ── Add to shopping list ──────────────────────────────────────────────────────
 
 async function addToShoppingList() {
-  const items = aggregateItems();
-  if (!items.length) return;
+  // Use whichever store the user currently has active in the popup
+  const { selectedStore } = await chrome.storage.local.get('selectedStore');
+  const store    = selectedStore || 'barbora';
+  const useMap   = store === 'rimi'   ? rimiIngredientMap
+                 : store === 'selver' ? selverIngredientMap
+                 : ingredientMap;
+  const fallback = store !== 'barbora' ? ingredientMap : null; // fall back to Barbora when non-Barbora has no mappings
+
+  // Build items using the active store's map
+  const items = aggregateItems(useMap, store);
+
+  const activeMap = useMap;
+
+  if (!items.length) {
+    // Active store has no mappings yet — fall back to Barbora gracefully
+    const fallbackItems = fallback ? aggregateItems(fallback, 'barbora') : [];
+    if (!fallbackItems.length) return;
+    const storeDisplayName = store === 'rimi' ? 'Rimi' : store === 'selver' ? 'Selver' : 'Barbora';
+    const warn = store !== 'barbora'
+      ? `\n⚠ No ${storeDisplayName} mappings found — using Barbora products. Complete ${storeDisplayName} mapping in the Ingredient Resolver.`
+      : '';
+    await chrome.storage.local.set({ savedItems: fallbackItems });
+    const selRecipes = [...selected].map(id => recipes.find(r => r.id === id)).filter(Boolean);
+    history = [{ date: new Date().toISOString(), ids: selRecipes.map(r => r.id), names: selRecipes.map(r => r.name) }, ...history].slice(0, 20);
+    await chrome.storage.local.set({ mealHistory: history });
+    document.getElementById('modal-body').textContent =
+      `${fallbackItems.length} product${fallbackItems.length !== 1 ? 's' : ''} from ${selected.size} meal${selected.size !== 1 ? 's' : ''}${warn}`;
+    document.getElementById('overlay').style.display = 'flex';
+    return;
+  }
 
   await chrome.storage.local.set({ savedItems: items });
 
@@ -430,17 +516,19 @@ async function addToShoppingList() {
   await chrome.storage.local.set({ mealHistory: history });
 
   // Build modal summary
-  const skipped = [], unmapped = [];
+  const skipped  = [], unmapped = [];
+  const checkMap = activeMap;
   for (const id of selected) {
     recipes.find(r => r.id === id)?.ingredients.forEach(ing => {
       if (pantryItems.has(ing.name) && !skipped.includes(ing.name)) skipped.push(ing.name);
-      else if (!ingredientMap[ing.name] && !pantryItems.has(ing.name) && !unmapped.includes(ing.name)) unmapped.push(ing.name);
+      else if (!checkMap[ing.name] && !pantryItems.has(ing.name) && !unmapped.includes(ing.name)) unmapped.push(ing.name);
     });
   }
 
-  let body = `${items.length} product${items.length !== 1 ? 's' : ''} from ${selected.size} meal${selected.size !== 1 ? 's' : ''}`;
-  if (skipped.length) body += `\n${skipped.length} pantry item${skipped.length !== 1 ? 's' : ''} skipped (already in kitchen)`;
-  if (unmapped.length) body += `\n${unmapped.length} ingredient${unmapped.length !== 1 ? 's' : ''} had no mapping and were skipped`;
+  const storeName = store === 'rimi' ? 'Rimi' : store === 'selver' ? 'Selver' : 'Barbora';
+  let body = `${items.length} product${items.length !== 1 ? 's' : ''} from ${selected.size} meal${selected.size !== 1 ? 's' : ''} — for ${storeName}`;
+  if (skipped.length)  body += `\n${skipped.length} pantry item${skipped.length !== 1 ? 's' : ''} skipped`;
+  if (unmapped.length) body += `\n${unmapped.length} ingredient${unmapped.length !== 1 ? 's' : ''} had no ${storeName} mapping and were skipped`;
 
   document.getElementById('modal-body').textContent = body;
   document.getElementById('overlay').style.display = 'flex';
@@ -506,11 +594,25 @@ async function refreshPrices() {
   btn.disabled    = true;
 
   try {
-    const resp = await chrome.runtime.sendMessage({ type: 'REFRESH_PRICES', ingredientMap });
-    if (resp.error) throw new Error(resp.error);
-    ingredientMap   = resp.ingredientMap;
-    pricesUpdatedAt = resp.updatedAt;
-    await chrome.storage.local.set({ ingredientMap, pricesUpdatedAt });
+    // Refresh prices for all three stores in parallel
+    const [bResp, rResp, sResp] = await Promise.allSettled([
+      chrome.runtime.sendMessage({ type: 'REFRESH_PRICES', ingredientMap,       store: 'barbora' }),
+      chrome.runtime.sendMessage({ type: 'REFRESH_PRICES', ingredientMap: rimiIngredientMap,   store: 'rimi'    }),
+      chrome.runtime.sendMessage({ type: 'REFRESH_PRICES', ingredientMap: selverIngredientMap, store: 'selver'  }),
+    ]);
+
+    if (bResp.status === 'fulfilled' && bResp.value?.ingredientMap) {
+      ingredientMap   = bResp.value.ingredientMap;
+      pricesUpdatedAt = bResp.value.updatedAt;
+    }
+    if (rResp.status === 'fulfilled' && rResp.value?.ingredientMap) {
+      rimiIngredientMap = rResp.value.ingredientMap;
+    }
+    if (sResp.status === 'fulfilled' && sResp.value?.ingredientMap) {
+      selverIngredientMap = sResp.value.ingredientMap;
+    }
+
+    await chrome.storage.local.set({ ingredientMap, rimiIngredientMap, selverIngredientMap, pricesUpdatedAt });
     updatePriceAge();
     renderGrid();
     updateSelectionUI();

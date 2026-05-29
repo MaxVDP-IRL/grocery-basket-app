@@ -1,147 +1,143 @@
-// resolver.js — Ingredient → Barbora SKU mapping tool
+// resolver.js — Ingredient → Supabase SKU mapping tool (Barbora + Rimi + Selver)
+// Supports multiple alternative SKUs per ingredient per store.
 
-// Estonian search terms for each ingredient.
-// The search box is pre-filled with these — edit in the UI if a term gives bad results.
-const ET = {
-  "Arborio rice":          "arborio riis",
-  "Avocado":               "avokaado",
-  "Beef mince":            "veisehakkliha",
-  "Beef stock cube":       "veisepuljong kuubik",
-  "Beef strips":           "veiseliha ribad",
-  "Beef strips or steak":  "veiseliha",
-  "Bell pepper":           "paprika",
-  "Black olives":          "mustad oliivid",
-  "Breadcrumbs":           "riivsai",
-  "Broccoli":              "brokkoli",
-  "Burger buns":           "burgerisai",
-  "Butter":                "või",
-  "Caesar dressing":       "caesari kaste",
-  "Celery":                "seller",
-  "Cheddar cheese":        "cheddar juust",
-  "Cherry tomatoes":       "kirsitomatid",
-  "Chicken breast":        "kana rinnafile",
-  "Chicken stock cube":    "kanapuljong kuubik",
-  "Chicken thigh":         "kana reietükk",
-  "Coconut milk":          "kookospiim",
-  "Cooked prawns":         "krevetid",
-  "Corn starch":           "maisitärklis",
-  "Crusty bread":          "koorikleib",
-  "Cucumber":              "kurk",
-  "Curry powder":          "karripulber",
-  "Dijon mustard":         "dijoni sinep",
-  "Dried basil":           "kuivatatud basiilik",
-  "Dried chilli flakes":   "tšillipulber",
-  "Dried dill":            "kuivatatud till",
-  "Dried oregano":         "pune",
-  "Dried parsley":         "kuivatatud petersell",
-  "Dried rosemary":        "rosmariin",
-  "Dried thyme":           "tüümian",
-  "Egg":                   "muna",
-  "Egg noodles":           "munanudlid",
-  "Feta cheese":           "feta juust",
-  "Flour tortillas":       "tortilla",
-  "Fresh dill":            "värske till",
-  "Frozen peas":           "külmutatud herned",
-  "Garlic":                "küüslauk",
-  "Garlic powder":         "küüslaugupulber",
-  "Ground cumin":          "köömned",
-  "Heavy cream":           "vahukoor",
-  "Honey":                 "mesi",
-  "Hummus":                "hummus",
-  "Iceberg lettuce":       "jäissalat",
-  "Ketchup":               "ketšup",
-  "Lemon":                 "sidrun",
-  "Lime":                  "laim",
-  "Long grain rice":       "pikateraline riis",
-  "Milk":                  "piim",
-  "Mozzarella cheese":     "mozzarella",
-  "Mushrooms":             "šampinjonid",
-  "Mustard":               "sinep",
-  "Natural yogurt":        "naturaalne jogurt",
-  "Olive oil":             "oliiviõli",
-  "Onion":                 "sibul",
-  "Pappardelle pasta":     "pappardelle",
-  "Paprika":               "paprikapulber",
-  "Parmesan cheese":       "parmesan",
-  "Penne pasta":           "penne",
-  "Plain flour":           "nisujahu",
-  "Pork mince":            "seahakkliha",
-  "Pork sausages":         "seavorstid",
-  "Pork tenderloin":       "seafilee",
-  "Potato":                "kartul",
-  "Potatoes":              "kartul",
-  "Red lentils":           "punased läätsed",
-  "Red onion":             "punane sibul",
-  "Ricotta cheese":        "ricotta",
-  "Romaine lettuce":       "rooma salat",
-  "Salmon fillet":         "lõhe file",
-  "Sesame oil":            "seesamiõli",
-  "Sour cream":            "hapukoor",
-  "Soy sauce":             "sojakaste",
-  "Spaghetti":             "spaghetti",
-  "Spinach":               "spinat",
-  "Spring onion":          "roheline sibul",
-  "Sunflower oil":         "päevalilleõli",
-  "Tikka masala paste":    "tikka masala",
-  "Tinned black beans":    "mustad oad konserv",
-  "Tinned chickpeas":      "kikerherned konserv",
-  "Tinned corn":           "mais konserv",
-  "Tinned kidney beans":   "punased oad konserv",
-  "Tinned tomatoes":       "tomatid konserv",
-  "Tinned tuna":           "tuunikala konserv",
-  "Tomato":                "tomat",
-  "Tomato paste":          "tomatipasta",
-  "Vegetable stock cube":  "köögiviljapuljong",
-  "White fish fillet":     "valge kala file",
-  "Zucchini":              "suvikõrvits",
-};
-
-const INGREDIENTS = [
-  "Arborio rice","Avocado","Beef mince","Beef stock cube","Beef strips",
-  "Beef strips or steak","Bell pepper","Black olives","Breadcrumbs","Broccoli",
-  "Burger buns","Butter","Caesar dressing","Celery","Cheddar cheese",
-  "Cherry tomatoes","Chicken breast","Chicken stock cube","Chicken thigh",
-  "Coconut milk","Cooked prawns","Corn starch","Crusty bread",
-  "Cucumber","Curry powder","Dijon mustard","Dried basil","Dried chilli flakes",
-  "Dried dill","Dried oregano","Dried parsley","Dried rosemary",
-  "Dried thyme","Egg","Egg noodles","Feta cheese","Flour tortillas","Fresh dill",
-  "Frozen peas","Garlic","Garlic powder","Ground cumin","Heavy cream","Honey",
-  "Hummus","Iceberg lettuce","Ketchup","Lemon","Lime",
-  "Long grain rice","Milk","Mozzarella cheese","Mushrooms","Mustard",
-  "Natural yogurt","Olive oil","Onion","Pappardelle pasta","Paprika",
-  "Parmesan cheese","Penne pasta","Plain flour",
-  "Pork mince","Pork sausages","Pork tenderloin","Potato","Potatoes","Red lentils",
-  "Red onion","Ricotta cheese","Romaine lettuce","Salmon fillet","Sesame oil",
-  "Sour cream","Soy sauce","Spaghetti","Spinach","Spring onion","Sunflower oil",
-  "Tikka masala paste","Tinned black beans","Tinned chickpeas",
-  "Tinned corn","Tinned kidney beans","Tinned tomatoes","Tinned tuna","Tomato",
-  "Tomato paste","Vegetable stock cube","White fish fillet","Zucchini"
-];
+const SUPABASE_URL = 'https://vjeqsgsulhxvkshjoicg.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZqZXFzZ3N1bGh4dmtzaGpvaWNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5Nzk5NTEsImV4cCI6MjA5NTU1NTk1MX0.9SDRENFqfDLjT4YhCFmyVPzJZUQmLe9K29m638nIMmY';
 
 // ── State ─────────────────────────────────────────────────────────────────────
 
-let mapped    = {};  // { ingredientName: { sku, title, price, image } }
-let skipped   = new Set();
-let current   = 0;  // index into unmapped ingredients
-let results   = []; // current search results
+let ingredients   = [];  // [{id, name_en, name_et, unit, category}] from Supabase
+// skuMap[ingredientId][store] = [{rowId, sku, title, price, image}, …]  (array — multiple alternatives)
+let skuMap        = {};
+let activeStore   = 'barbora';
+let current       = 0;
+let searchResults = [];
+let saveStatus    = null; // null | 'saving' | 'saved' | 'error'
+
+// ── Supabase helpers ──────────────────────────────────────────────────────────
+
+const SB_HEADERS = {
+  'apikey':        SUPABASE_KEY,
+  'Authorization': `Bearer ${SUPABASE_KEY}`,
+  'Content-Type':  'application/json',
+};
+
+async function sbGet(path) {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1${path}`, { headers: SB_HEADERS });
+  if (!res.ok) throw new Error(`Supabase ${res.status}: ${await res.text()}`);
+  return res.json();
+}
+
+async function sbPost(path, body) {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1${path}`, {
+    method:  'POST',
+    headers: { ...SB_HEADERS, 'Prefer': 'return=representation' },
+    body:    JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`Supabase POST ${res.status}: ${await res.text()}`);
+  const rows = await res.json();
+  return rows[0];
+}
+
+async function sbDelete(path) {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1${path}`, {
+    method:  'DELETE',
+    headers: SB_HEADERS,
+  });
+  if (!res.ok) throw new Error(`Supabase DELETE ${res.status}: ${await res.text()}`);
+}
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 
 async function init() {
-  const stored = await chrome.storage.local.get('ingredientMap');
-  mapped  = stored.ingredientMap || {};
-  skipped = new Set();
+  showLoading('Loading ingredients from Supabase…');
+
+  try {
+    ingredients = await sbGet(
+      '/ingredients?select=id,name_en,name_et,unit,category&order=name_en.asc'
+    );
+
+    const skuRows = await sbGet(
+      '/ingredient_skus?select=id,ingredient_id,supermarket,sku,display_name,last_price_eur,image_url'
+    );
+
+    // Build skuMap: ingredientId → {store → [{rowId, sku, title, price, image}]}
+    skuMap = {};
+    for (const row of skuRows) {
+      if (!skuMap[row.ingredient_id])              skuMap[row.ingredient_id] = {};
+      if (!skuMap[row.ingredient_id][row.supermarket]) skuMap[row.ingredient_id][row.supermarket] = [];
+      skuMap[row.ingredient_id][row.supermarket].push({
+        rowId: row.id,
+        sku:   row.sku,
+        title: row.display_name || row.sku,
+        price: row.last_price_eur,
+        image: row.image_url || '',
+      });
+    }
+  } catch (e) {
+    showError(`Failed to load from Supabase: ${e.message}`);
+    return;
+  }
+
+  renderStoreToggle();
   renderAll();
 }
 
+function showLoading(msg) {
+  document.getElementById('left-col').innerHTML =
+    `<div class="status-msg">${esc(msg)}</div>`;
+  document.getElementById('mapped-list').innerHTML = '';
+}
+
+function showError(msg) {
+  document.getElementById('left-col').innerHTML =
+    `<div class="status-msg" style="color:var(--red)">${esc(msg)}</div>`;
+}
+
+// ── Store toggle ──────────────────────────────────────────────────────────────
+
+function renderStoreToggle() {
+  const bar = document.getElementById('store-toggle-bar');
+  if (!bar) return;
+  bar.innerHTML = `
+    <span style="font-size:12px;font-weight:600;color:#666;margin-right:6px">Mapping for:</span>
+    <button id="toggle-barbora" class="store-toggle-btn${activeStore === 'barbora' ? ' active' : ''}">Barbora</button>
+    <button id="toggle-rimi"    class="store-toggle-btn${activeStore === 'rimi'    ? ' active' : ''}">Rimi</button>
+    <button id="toggle-selver"  class="store-toggle-btn${activeStore === 'selver'  ? ' active' : ''}">Selver</button>
+  `;
+  bar.querySelector('#toggle-barbora').addEventListener('click', () => switchStore('barbora'));
+  bar.querySelector('#toggle-rimi').addEventListener('click',    () => switchStore('rimi'));
+  bar.querySelector('#toggle-selver').addEventListener('click',  () => switchStore('selver'));
+}
+
+function switchStore(store) {
+  activeStore = store;
+  current     = 0;
+  renderStoreToggle();
+  renderAll();
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function skusForCurrent(ingredientId) {
+  return skuMap[ingredientId]?.[activeStore] || [];
+}
+
+function mappedForStore() {
+  return ingredients.filter(ing => skusForCurrent(ing.id).length > 0);
+}
+
 function unmapped() {
-  return INGREDIENTS.filter(i => !mapped[i]);
+  return ingredients.filter(ing => skusForCurrent(ing.id).length === 0);
 }
 
 function currentIngredient() {
   const list = unmapped();
   return list[current] || null;
 }
+
+const STORE_LABEL = { barbora: 'Barbora', rimi: 'Rimi', selver: 'Selver' };
+const STORE_INIT  = { barbora: 'B', rimi: 'R', selver: 'S' };
 
 // ── Render ────────────────────────────────────────────────────────────────────
 
@@ -152,58 +148,99 @@ function renderAll() {
 }
 
 function updateProgress() {
-  const total   = INGREDIENTS.length;
-  const done    = Object.keys(mapped).length;
-  document.getElementById('progress-pill').textContent = `${done} / ${total}`;
+  const done  = mappedForStore().length;
+  const total = ingredients.length;
+  document.getElementById('progress-pill').textContent =
+    `${STORE_LABEL[activeStore]}: ${done} / ${total}`;
+
+  const statusEl = document.getElementById('save-status');
+  if (statusEl) {
+    if      (saveStatus === 'saving') { statusEl.textContent = 'Saving…';       statusEl.style.color = '#ccc'; }
+    else if (saveStatus === 'saved')  { statusEl.textContent = 'Saved ✓';      statusEl.style.color = '#aed97f'; }
+    else if (saveStatus === 'error')  { statusEl.textContent = 'Save failed ✗'; statusEl.style.color = '#faa'; }
+    else                              { statusEl.textContent = ''; }
+  }
 }
 
 function renderMappedSidebar() {
-  const el   = document.getElementById('mapped-list');
-  const keys = Object.keys(mapped);
-  if (!keys.length) {
-    el.innerHTML = '<div style="color:#aaa;font-size:13px">Nothing mapped yet.</div>';
+  const el     = document.getElementById('mapped-list');
+  const mapped = mappedForStore();
+
+  if (!mapped.length) {
+    el.innerHTML = `<div style="color:#aaa;font-size:13px">Nothing mapped for ${STORE_LABEL[activeStore]} yet.</div>`;
     return;
   }
-  el.innerHTML = keys.map(name => {
-    const m = mapped[name];
+
+  const others = ['barbora', 'rimi', 'selver'].filter(s => s !== activeStore);
+
+  el.innerHTML = mapped.map(ing => {
+    const skus   = skusForCurrent(ing.id);
+    const count  = skus.length;
+    const badges = others
+      .filter(s => skuMap[ing.id]?.[s]?.length > 0)
+      .map(s => `<span title="Also mapped for ${STORE_LABEL[s]}"
+                       style="font-size:10px;background:#e8f5e9;color:#2d7a3a;border-radius:3px;padding:1px 4px;margin-left:3px">${STORE_INIT[s]}✓</span>`)
+      .join('');
+    // List each alternative with its own remove button
+    const altList = skus.map(m => `
+      <div style="display:flex;align-items:center;gap:6px;padding:3px 0 3px 22px;border-bottom:1px solid #f5f5f5">
+        <span style="flex:1;font-size:12px;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${esc(m.title)}">${esc(m.title)}</span>
+        ${m.price != null ? `<span style="font-size:11px;color:#888;flex-shrink:0">€${Number(m.price).toFixed(2)}</span>` : ''}
+        <button class="mapped-undo" data-ingid="${esc(ing.id)}" data-rowid="${esc(m.rowId)}" title="Remove">×</button>
+      </div>`).join('');
+
     return `
-      <div class="mapped-item">
-        <span class="mapped-check">✓</span>
-        <span class="mapped-name">${esc(name)}</span>
-        <span class="mapped-product" title="${esc(m.title)}">${esc(m.title)}</span>
-        <button class="mapped-undo" data-name="${esc(name)}" title="Undo">×</button>
+      <div class="mapped-item" style="flex-wrap:wrap;align-items:flex-start">
+        <span class="mapped-check" style="padding-top:2px">✓</span>
+        <span class="mapped-name" style="flex:1">${esc(ing.name_en)}${badges}
+          ${count > 1 ? `<span style="font-size:10px;background:#e8f0fe;color:#3c4aaa;border-radius:10px;padding:1px 6px;margin-left:4px">${count} options</span>` : ''}
+        </span>
+        <div style="width:100%">${altList}</div>
       </div>`;
   }).join('');
+
   el.querySelectorAll('.mapped-undo').forEach(btn => {
-    btn.addEventListener('click', () => undoMapping(btn.dataset.name));
+    btn.addEventListener('click', () => removeAlternative(btn.dataset.ingid, btn.dataset.rowid));
   });
 }
 
 function renderMain() {
-  const col  = document.getElementById('left-col');
-  const todo = unmapped();
+  const col        = document.getElementById('left-col');
+  const todo       = unmapped();
+  const storeLabel = STORE_LABEL[activeStore];
 
   if (!todo.length) {
     col.innerHTML = `
       <div class="done-banner">
-        <h2>✓ All ${INGREDIENTS.length} ingredients mapped</h2>
-        <p>Click "Download Map ↓" in the top bar to save your ingredient-map.json file.</p>
+        <h2>✓ All ${ingredients.length} ingredients mapped for ${storeLabel}</h2>
+        <p>Switch stores above to map the other ones. All data is live in Supabase.</p>
       </div>`;
     return;
   }
 
-  // Clamp current index
   if (current >= todo.length) current = todo.length - 1;
-  const name = todo[current];
+  const ing    = todo[current];
+  const etTerm = ing.name_et || ing.name_en;
 
-  const etTerm = ET[name] || name;
+  // Cross-store hints
+  const otherHints = ['barbora', 'rimi', 'selver']
+    .filter(s => s !== activeStore && skuMap[ing.id]?.[s]?.length > 0)
+    .map(s => {
+      const skus  = skuMap[ing.id][s];
+      const label = STORE_LABEL[s];
+      const names = skus.map(m => `<em>${esc(m.title)}</em>`).join(', ');
+      return `<div style="font-size:11px;color:#888;margin-top:4px">${label}: ${names}</div>`;
+    }).join('');
 
   col.innerHTML = `
     <div class="ingredient-card">
-      <div class="ingredient-label">Ingredient ${current + 1} of ${todo.length} remaining</div>
-      <div class="ingredient-name">${esc(name)}</div>
-      <div class="search-row">
-        <input id="search-input" type="text" value="${esc(etTerm)}" placeholder="Otsi Barborast…">
+      <div class="ingredient-label">Ingredient ${current + 1} of ${todo.length} remaining for ${storeLabel}</div>
+      <div class="ingredient-name">${esc(ing.name_en)}</div>
+      ${ing.name_et    ? `<div style="font-size:13px;color:#888;margin-bottom:4px">${esc(ing.name_et)}</div>` : ''}
+      ${ing.category   ? `<div style="font-size:11px;color:#bbb;margin-bottom:10px;text-transform:uppercase;letter-spacing:.4px">${esc(ing.category)}</div>` : ''}
+      ${otherHints}
+      <div class="search-row" style="margin-top:12px">
+        <input id="search-input" type="text" value="${esc(etTerm)}" placeholder="Search on ${storeLabel}…">
         <button class="btn-search" id="search-btn">Search</button>
       </div>
     </div>
@@ -215,12 +252,7 @@ function renderMain() {
     </div>
 
     <div id="results-area">
-      <div class="status-msg">Press Search to find matches on Barbora.</div>
-    </div>
-
-    <div class="mapped-section" id="mapped-section" style="display:none">
-      <div class="mapped-header">Currently mapped to</div>
-      <div id="current-mapping"></div>
+      <div class="status-msg">Press Search to find matches on ${storeLabel}.</div>
     </div>
   `;
 
@@ -231,12 +263,10 @@ function renderMain() {
   document.getElementById('prev-btn')?.addEventListener('click', () => { current--; renderMain(); });
   document.getElementById('next-btn')?.addEventListener('click', () => { current++; renderMain(); });
   document.getElementById('skip-btn').addEventListener('click', () => {
-    skipped.add(name);
     if (current < todo.length - 1) current++;
     renderMain();
   });
 
-  // Auto-search on load
   doSearch();
 }
 
@@ -249,94 +279,172 @@ async function doSearch() {
   const area = document.getElementById('results-area');
   area.innerHTML = '<div class="status-msg">Searching…</div>';
 
-  const resp = await chrome.runtime.sendMessage({ type: 'SEARCH', query, limit: 9 });
-
-  if (resp.error) {
-    area.innerHTML = `<div class="status-msg" style="color:#d93025">Error: ${esc(resp.error)}<br>Make sure you are logged into Barbora.ee.</div>`;
-    return;
-  }
-  if (!resp.results || !resp.results.length) {
-    area.innerHTML = `<div class="status-msg">No results. Try a different search term.</div>`;
+  let resp;
+  try {
+    resp = await chrome.runtime.sendMessage({ type: 'SEARCH', query, limit: 9, store: activeStore });
+  } catch (e) {
+    area.innerHTML = `<div class="status-msg" style="color:var(--red)">Extension error: ${esc(e.message)}</div>`;
     return;
   }
 
-  results = resp.results;
+  if (!resp || resp.error) {
+    const hints = {
+      barbora: 'Make sure you are logged into barbora.ee.',
+      rimi:    'Make sure you are logged into rimi.ee/epood and have a delivery slot selected.',
+      selver:  'Check your internet connection — Selver search requires no login.',
+    };
+    area.innerHTML = `<div class="status-msg" style="color:var(--red)">
+      ${esc(resp?.error || 'No response from extension')}
+      <br><small style="color:#888">${hints[activeStore]}</small>
+    </div>`;
+    return;
+  }
+
+  if (!resp.results?.length) {
+    area.innerHTML = `<div class="status-msg">No results — try a different search term.</div>`;
+    return;
+  }
+
+  searchResults = resp.results;
   renderResults();
 }
 
 function renderResults() {
-  const area = document.getElementById('results-area');
-  const name = currentIngredient();
+  const area    = document.getElementById('results-area');
+  const ing     = currentIngredient();
+  const addedSkus = new Set((ing ? skusForCurrent(ing.id) : []).map(m => String(m.sku)));
 
   area.innerHTML = `
-    <div class="results-grid">
-      ${results.map((p, i) => `
-        <div class="result-card" id="card-${i}">
-          <img src="${esc(p.image || '')}" alt="" onerror="this.style.display='none'">
-          <div class="result-card-title">${esc(p.title)}</div>
-          <div class="result-card-price">€${(p.price || 0).toFixed(2)}</div>
-          <div class="result-card-sku">${esc(p.sku)}</div>
-          <button class="select-btn" data-idx="${i}">Select ✓</button>
+    ${ing && addedSkus.size > 0 ? `
+      <div style="margin-bottom:14px">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:#888;margin-bottom:8px">
+          Added so far (${addedSkus.size}) — add more or press Next →
         </div>
-      `).join('')}
+        ${skusForCurrent(ing.id).map(m => `
+          <div style="display:flex;align-items:center;gap:8px;background:#f2f8eb;border:1px solid #c8e8a0;border-radius:6px;padding:8px 12px;margin-bottom:6px">
+            ${m.image ? `<img src="${esc(m.image)}" style="width:36px;height:36px;object-fit:contain;border-radius:4px;background:#fff" onerror="this.style.display='none'">` : ''}
+            <span style="flex:1;font-size:13px;font-weight:500">${esc(m.title)}</span>
+            ${m.price != null ? `<span style="font-size:13px;font-weight:700;color:var(--green-dark)">€${Number(m.price).toFixed(2)}</span>` : ''}
+            <button class="mapped-undo remove-added" data-ingid="${esc(ing.id)}" data-rowid="${esc(m.rowId)}" title="Remove" style="font-size:16px;padding:0 4px">×</button>
+          </div>`).join('')}
+      </div>` : ''}
+    <div class="results-grid">
+      ${searchResults.map((p, i) => {
+        const alreadyAdded = addedSkus.has(String(p.sku));
+        return `
+          <div class="result-card${alreadyAdded ? ' selected' : ''}" id="card-${i}">
+            <img src="${esc(p.image || '')}" alt="" onerror="this.style.display='none'">
+            <div class="result-card-title">${esc(p.title)}</div>
+            <div class="result-card-price">€${(p.price || 0).toFixed(2)}</div>
+            <div class="result-card-sku">${esc(p.sku)}</div>
+            <button class="select-btn" data-idx="${i}" ${alreadyAdded ? 'disabled style="background:#aaa;cursor:default"' : ''}>
+              ${alreadyAdded ? 'Added ✓' : 'Add ✓'}
+            </button>
+          </div>`;
+      }).join('')}
     </div>
   `;
 
-  area.querySelectorAll('.select-btn').forEach(btn => {
-    btn.addEventListener('click', () => selectProduct(results[parseInt(btn.dataset.idx)]));
+  area.querySelectorAll('.select-btn:not([disabled])').forEach(btn => {
+    btn.addEventListener('click', () => addProduct(searchResults[parseInt(btn.dataset.idx)]));
+  });
+  area.querySelectorAll('.remove-added').forEach(btn => {
+    btn.addEventListener('click', () => removeAlternative(btn.dataset.ingid, btn.dataset.rowid));
   });
 }
 
 // ── Mapping ───────────────────────────────────────────────────────────────────
 
-async function selectProduct(product) {
-  const name = currentIngredient();
-  if (!name) return;
+async function addProduct(product) {
+  const ing = currentIngredient();
+  if (!ing) return;
 
-  mapped[name] = {
-    sku:   product.sku,
-    title: product.title,
-    price: product.price,
-    image: product.image || '',
+  // Guard: don't add the same SKU twice
+  const existing = skusForCurrent(ing.id);
+  if (existing.some(m => String(m.sku) === String(product.sku))) return;
+
+  setSaveStatus('saving');
+
+  const payload = {
+    ingredient_id:      ing.id,
+    supermarket:        activeStore,
+    sku:                String(product.sku),
+    display_name:       product.title,
+    last_price_eur:     product.price || null,
+    last_price_seen_at: new Date().toISOString(),
+    image_url:          product.image || null,
   };
 
-  await chrome.storage.local.set({ ingredientMap: mapped });
+  try {
+    const savedRow = await sbPost('/ingredient_skus', payload);
 
-  // Advance to next unmapped
-  const todo = unmapped();
-  if (current >= todo.length) current = Math.max(0, todo.length - 1);
+    if (!skuMap[ing.id])              skuMap[ing.id] = {};
+    if (!skuMap[ing.id][activeStore]) skuMap[ing.id][activeStore] = [];
+    skuMap[ing.id][activeStore].push({
+      rowId: savedRow?.id,
+      sku:   String(product.sku),
+      title: product.title,
+      price: product.price,
+      image: product.image || '',
+    });
 
-  renderAll();
+    setSaveStatus('saved');
+    setTimeout(() => { saveStatus = null; updateProgress(); }, 2000);
+
+    // Re-render results in place so Oli can keep adding without losing the result grid
+    updateProgress();
+    renderMappedSidebar();
+    renderResults();
+
+  } catch (e) {
+    console.error('Save failed:', e);
+    setSaveStatus('error');
+    setTimeout(() => { saveStatus = null; updateProgress(); }, 4000);
+  }
 }
 
-async function undoMapping(name) {
-  delete mapped[name];
-  await chrome.storage.local.set({ ingredientMap: mapped });
-  renderAll();
+async function removeAlternative(ingredientId, rowId) {
+  const skus = skuMap[ingredientId]?.[activeStore];
+  if (!skus) return;
+
+  setSaveStatus('saving');
+
+  try {
+    await sbDelete(`/ingredient_skus?id=eq.${rowId}`);
+
+    skuMap[ingredientId][activeStore] = skus.filter(m => String(m.rowId) !== String(rowId));
+    if (skuMap[ingredientId][activeStore].length === 0) {
+      delete skuMap[ingredientId][activeStore];
+    }
+
+    setSaveStatus('saved');
+    setTimeout(() => { saveStatus = null; updateProgress(); }, 2000);
+
+    // If this ingredient is now unmapped, recalculate current index
+    const todo = unmapped();
+    if (current >= todo.length) current = Math.max(0, todo.length - 1);
+    renderAll();
+
+  } catch (e) {
+    console.error('Delete failed:', e);
+    setSaveStatus('error');
+    setTimeout(() => { saveStatus = null; updateProgress(); }, 4000);
+  }
 }
 
-// ── Export ────────────────────────────────────────────────────────────────────
-
-function exportMap() {
-  const data = JSON.stringify(mapped, null, 2);
-  const blob = new Blob([data], { type: 'application/json' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = 'ingredient-map.json';
-  a.click();
-  URL.revokeObjectURL(url);
+function setSaveStatus(status) {
+  saveStatus = status;
+  updateProgress();
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function esc(str) {
   return String(str || '')
-    .replace(/&/g,'&amp;').replace(/"/g,'&quot;')
-    .replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    .replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 // ── Bootstrap ─────────────────────────────────────────────────────────────────
 
-document.getElementById('export-btn').addEventListener('click', exportMap);
 init();

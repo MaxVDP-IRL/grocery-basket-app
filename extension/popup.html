@@ -3,16 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="popup.css">
+  <style>
+    /* Store selector */
+    .store-tabs {
+      display: flex;
+      gap: 0;
+      padding: 8px 16px;
+      border-bottom: 1px solid var(--border);
+      background: #fafafa;
+    }
+    .store-tab {
+      flex: 1;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      color: var(--gray);
+      transition: all .15s;
+    }
+    .store-tab:first-child        { border-radius: var(--radius) 0 0 var(--radius); }
+    .store-tab:last-child         { border-radius: 0 var(--radius) var(--radius) 0; }
+    .store-tab:not(:first-child)  { border-left: none; }
+    .store-tab.active {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+    .store-tab:not(.active):hover { background: var(--green-bg); color: var(--green-dark); }
+
+    /* Compare button */
+    .compare-btn {
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 8px 10px;
+      background: #fff;
+      color: var(--green-dark);
+      border: 1px solid var(--green);
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .compare-btn:hover:not(:disabled) { background: var(--green-bg); }
+    .compare-btn:disabled { opacity: .5; cursor: default; }
+
+    /* Comparison panel */
+    .compare-panel {
+      display: none;
+      border-top: 1px solid var(--border);
+      background: #fafafa;
+    }
+    .compare-panel.visible { display: block; }
+    .compare-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-panel-header span {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .compare-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #aaa;
+      font-size: 16px;
+      line-height: 1;
+      padding: 0 2px;
+    }
+    .compare-close:hover { color: var(--red); }
+    .compare-rows { padding: 4px 0; max-height: 220px; overflow-y: auto; }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1fr 68px 68px 68px;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-bottom: 1px solid #eee;
+      font-size: 12px;
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-item-name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #333;
+    }
+    .compare-price {
+      text-align: right;
+      font-weight: 600;
+    }
+    .compare-price.cheaper { color: var(--green-dark); }
+    .compare-price.pricier { color: #999; }
+    .compare-price.na      { color: #bbb; font-weight: 400; font-style: italic; }
+    .compare-totals {
+      display: grid;
+      grid-template-columns: 1fr 68px 68px 68px;
+      gap: 6px;
+      padding: 8px 16px;
+      border-top: 2px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+      background: #f2f8eb;
+    }
+    .compare-totals .label { color: var(--gray); font-weight: 600; font-size: 11px; text-transform: uppercase; }
+    .compare-totals .total { text-align: right; }
+    .compare-totals .total.winner { color: var(--green-dark); }
+    .compare-actions {
+      display: flex;
+      gap: 8px;
+      padding: 8px 16px 12px;
+    }
+    .compare-fill-btn {
+      flex: 1;
+      padding: 8px;
+      border-radius: var(--radius);
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+    .compare-fill-btn:hover { opacity: .85; }
+    .compare-fill-btn.barbora { background: #e8401c; color: #fff; }
+    .compare-fill-btn.rimi    { background: #e31837; color: #fff; }
+    .compare-fill-btn.selver  { background: #00833e; color: #fff; }
+    .compare-msg {
+      padding: 16px;
+      text-align: center;
+      color: var(--gray);
+      font-size: 13px;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Header -->
   <div class="header">
-    <h1>🛒 Barbora Basket</h1>
+    <h1>🛒 Basket</h1>
     <div class="session-badge">
       <div class="dot" id="session-dot"></div>
       <span id="session-label">Checking…</span>
     </div>
+  </div>
+
+  <!-- Store selector -->
+  <div class="store-tabs">
+    <button class="store-tab" id="tab-barbora" data-store="barbora">Barbora</button>
+    <button class="store-tab" id="tab-rimi"    data-store="rimi">Rimi</button>
+    <button class="store-tab" id="tab-selver"  data-store="selver">Selver</button>
   </div>
 
   <!-- Search -->
@@ -33,8 +181,20 @@
   </div>
   <div class="list-items" id="list-items"></div>
 
+  <!-- Comparison panel -->
+  <div class="compare-panel" id="compare-panel">
+    <div class="compare-panel-header">
+      <span>Price comparison</span>
+      <button class="compare-close" id="compare-close">×</button>
+    </div>
+    <div id="compare-content">
+      <div class="compare-msg">Comparing prices…</div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <div class="footer">
+    <button class="compare-btn" id="compare-btn" disabled>🏷 Compare prices</button>
     <button class="fill-btn" id="fill-btn" disabled>Fill basket →</button>
     <div class="progress-wrap" id="progress-wrap">
       <div class="progress-bar-bg">

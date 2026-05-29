@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ingredient Resolver — Barbora Basket</title>
+  <title>Ingredient Resolver — Basket</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -241,6 +241,32 @@
     .done-banner h2 { color: var(--green-dark); margin-bottom: 8px; }
     .done-banner p { color: var(--gray); font-size: 13px; }
 
+    /* ── Store toggle ── */
+    .store-toggle-bar {
+      display: flex;
+      align-items: center;
+      padding: 10px 0 20px;
+    }
+    .store-toggle-btn {
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      color: var(--gray);
+      transition: all .15s;
+    }
+    .store-toggle-btn:first-of-type       { border-radius: var(--radius) 0 0 var(--radius); }
+    .store-toggle-btn:last-of-type        { border-radius: 0 var(--radius) var(--radius) 0; }
+    .store-toggle-btn:not(:first-of-type) { border-left: none; }
+    .store-toggle-btn.active {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+    .store-toggle-btn:not(.active):hover { background: var(--green-bg); color: var(--green-dark); }
+
     /* ── Layout ── */
     .layout { display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
     .sidebar {
@@ -265,12 +291,13 @@
     <h1>🥕 Ingredient Resolver</h1>
     <div class="topbar-right">
       <span class="progress-label">Mapped:</span>
-      <span class="progress-pill" id="progress-pill">0 / 99</span>
-      <button class="btn-export" id="export-btn">Download Map ↓</button>
+      <span class="progress-pill" id="progress-pill">0 / 86</span>
+      <span id="save-status" style="font-size:12px;opacity:.85"></span>
     </div>
   </div>
 
   <div class="main">
+    <div class="store-toggle-bar" id="store-toggle-bar"></div>
     <div class="layout">
       <div class="left-col" id="left-col">
         <!-- Filled by JS -->
